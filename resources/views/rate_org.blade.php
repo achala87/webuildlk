@@ -225,26 +225,26 @@ button:hover {
 
 <!-- One "tab" for each step in the form: -->
 <div class="tab">
-<h4>Describe why you are rating this organization *</h4>
+<label>Describe why you are rating this organization *</label>
 <p><input type="text" placeholder="" oninput="this.className = ''"></p>
 
-<h4>When did you encounter this experience *</h4>
+<label>When did you encounter this experience *</label>
 <p>From:<input type="date" id="from" onchange="copyDateFromToTo(this.value)" name="from" placeholder="from" oninput="this.className = ''"></p>
 <p>To:<input type="date" class="extrafields" id="to" name="to" placeholder="to" oninput="this.className = ''"></p>
     
-<h4>Unit, Designation/ Names of officers involed * </h4>
+<label>Unit, Designation/ Names of officers involed * </label>
 <p><input type="text" placeholder="i.e. [Services unit, Admin officer: Ruwan Danapala] and separate with a - multiple staff details" oninput="this.className = ''"></p>
 
-<h4>Reference numbers of your file if any</h4>
+<label>Reference numbers of your file if any</label>
 <p><input type="text" placeholder="" class="extrafields" oninput="this.className = ''"></p>
 
-<h4>Services you requested from this organization *</h4>
+<label>Services you requested from this organization *</label>
 <p><input type="text" placeholder="" oninput="this.className = ''"></p>
 
-<h4>Services you recived from this organization *</h4>
+<label>Services you recived from this organization *</label>
 <p><input type="text" placeholder="" oninput="this.className = ''"></p>
 
-<h4>Rate organization *</h4>
+<label>Rate organization *</label>
 
 <div class="slider">
     <div class="ui-slider-handle">
@@ -277,13 +277,13 @@ Involvement of bribery and corruption
 
 <div class="tab">
 
-<h4>Number of days taken to provide service </h4>
+<label>Number of days taken to provide service </label>
 <p><input type="text" placeholder="" class="extrafields" oninput="this.className = ''"></p>
 
-<h4>If you have, please attach any evidence to base this rating on [not mandatory]</h4>
+<label>If you have, please attach any evidence to base this rating on [not mandatory]</label>
 <p><input type="text" placeholder="" class="extrafields" oninput="this.className = ''"></p>
 
-<h4>Message to organization </h4>
+<label>Message to organization </label>
 <p><input type="text" placeholder="" class="extrafields" oninput="this.className = ''"></p>
 
 </div>
