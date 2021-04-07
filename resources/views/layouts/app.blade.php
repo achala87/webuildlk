@@ -37,7 +37,9 @@
 
 <!-- Scripts -->
  <script src="{{ asset('js/app.js') }}" defer></script>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script>  -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script> -->
 </html>

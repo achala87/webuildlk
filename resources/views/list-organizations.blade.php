@@ -14,7 +14,11 @@
         </h2> </div>
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-               
+            @if (session('success-rating'))
+            <div class="alert alert-success">
+            {{ session('success-rating') }}
+            </div>
+            @endif
             <div class="container mt-4">
             
             <table class="table table-bordered" id="laravel-datatable-crud">

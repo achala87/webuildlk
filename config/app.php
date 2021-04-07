@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Mahajanaya.lk'),
+    'name' => env('APP_NAME', 'webuildlk.com'),
 
     /*
     |--------------------------------------------------------------------------
