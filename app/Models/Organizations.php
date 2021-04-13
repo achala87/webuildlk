@@ -9,5 +9,13 @@ class Organizations extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'org_type']; 
+    protected $fillable = ['title', 'district', 'org_type']; 
+
+    /**
+     * Get the org reviews for the orgs.
+     */
+    public function organization_reviews()
+    {
+        return $this->hasMany(Organization_reviews::class, 'organization_id');
+    }
 }

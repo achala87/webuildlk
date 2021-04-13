@@ -1,3 +1,8 @@
+<style>
+.regrow{
+    font-size:0.8rem; margin-bottom:1em;
+}
+</style>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -5,7 +10,7 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
-
+        <div class="mt-4 regrow"><p style="text-align:center;">Non-validated accounts will be frozen, please enter authentic details</p></div>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -24,6 +29,20 @@
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
+             <!-- Contact No -->
+             <div class="mt-4">
+                <x-label for="contact_no" :value="__('Contact Number - Optional')" />
+
+                <x-input id="contact_no" class="block mt-1 w-full" type="text" name="contact_no" :value="old('contact_no')" />
+            </div>
+
+            <!-- Address -->
+            <div class="mt-4">
+                <x-label for="address" :value="__('Address - Optional')" />
+
+                <x-input id="address" class="block mt-1 w-full" placeholder="house no, road, suburb, city, post-code, district" type="text" name="address" :value="old('address')" />
             </div>
 
             <!-- Password -->

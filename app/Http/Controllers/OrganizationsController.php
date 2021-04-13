@@ -7,16 +7,18 @@ use Validator,Redirect,Response;
 use App\Models\Organizations;
 use App\Models\Organization_Reviews;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Auth;
 
 class OrganizationsController extends Controller
 {
+
     /* Display organizations list */
 
     public function index() 
     {    
         if(request()->ajax()) {
             return datatables()->of(Organizations::select([
-                'id','title' , 'district', 'created_at', 'address', 'avg_rating', 'description'
+                'id', 'title' , 'district', 'created_at', 'address', 'avg_rating', 'description'
             ]))
             ->addIndexColumn()
             ->addColumn('action', function($data){
@@ -48,7 +50,7 @@ class OrganizationsController extends Controller
     /* insert organization list into mysql database*/
 
     public function store(Request $request)
-    {
+    {   //dd($request);
         $data = request()->validate([
         'title' => 'required',
         'district' => 'required',
@@ -56,8 +58,11 @@ class OrganizationsController extends Controller
         ]);
        
         $check = Organizations::create($data);
-        //dd($data);
-        return Redirect::to("list")->withSuccess('Organization has been created.');
+        //dd($check);
+        if(!$check){
+            App::abort(500, 'Error');
+        }
+        return Redirect::to("list-organizations")->withSuccess($check->title.' has been created.');
     }
 
     /* display edit organization form with data */
@@ -102,7 +107,8 @@ class OrganizationsController extends Controller
     /* rate organization */
 
     public function set_org_rating(Request $request, $id)
-    { 
+    {   
+        
         $decrypted = Crypt::decryptString($id);
         $data['tokenid'] = $id;
         $data['organization'] = Organizations::where('id', $decrypted)->first();
@@ -146,7 +152,7 @@ class OrganizationsController extends Controller
      /* insert organization_review into mysql database*/
 
      public function store_organization_rating(Request $request)
-     {   
+     {  
          //dd($request->date_from);
          $data = request()->validate([
          'description' => 'required',
@@ -183,12 +189,16 @@ class OrganizationsController extends Controller
          $review->organization_id = (int) Crypt::decryptString($request->tokenid);
         //dd($review->organization_id);
          $check = $review->save();
+
+         $org = Organizations::find($review->organization_id);
+        
+         $org_name = $org['title'];
+
          if($check){
-            $responseData['sucess-rating'] =  'Success!!! review submitted. Thank you for being an active citizen.';
-           
-            return redirect()->route('/list-organizations', $responseData);
+            $request->session()->flash('sucessrating', 'Success!!! Rating of '.$org_name.' submitted. Thank you for being an active citizen.');
+            return redirect()->route('list-organizations');
         }else{
-            $responseData['fail-rating'] =  'Failed!!! Please retry...';
+            $request->session()->flash('failrating','Failed!!! Please retry...');
             $responseData['id'] = $request->tokenid;
             return redirect()->route('rate-organization', $responseData);
            // return Redirect::to("rate-organization")->with('org_id' -> $request->tokenid)->withFail('Organization review submission failed, please retry.');

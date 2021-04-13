@@ -11,7 +11,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Edit {{ $organization->title }}
+        You are editing {{ $organization->title }}
         </h2> </div>
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -106,11 +106,11 @@
         <span class="text-danger">{{ $errors->first('related_ministry') }}</span>
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="message">Upload photos</label>
         <textarea class="form-control" name="photos" placeholder="Photos">{{ $organization->photos }}</textarea>
         <span class="text-danger">{{ $errors->first('photos') }}</span>
-      </div>
+      </div> -->
 
       <div class="form-group">
        <button type="submit" class="btn btn-success" id="btn-send">Submit</button>

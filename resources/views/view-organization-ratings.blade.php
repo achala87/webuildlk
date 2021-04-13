@@ -1,4 +1,4 @@
-<x-app-layout>@section('title', 'Organizations')
+<x-app-layout>@section('title', 'View Organization Rating')
    <x-slot name="header">
    <div class="container-fluid"><div class="row">
        <div class="col-md-8" style="font-size:0.9rem;"><i>Rating organizations helps them improve services.</i></div> 

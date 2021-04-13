@@ -1,3 +1,11 @@
+<style> 
+.cregister{
+    color:darkolivegreen; font-weight:bold;
+}
+.regrow{
+    font-size:0.8rem; margin-bottom:1em;
+}
+</style>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -8,10 +16,18 @@
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
-
+        
+        @if (session('loginmessage'))
+            <div class="alert alert-success">
+                {{ session('loginmessage') }}
+            </div>
+       @endif
+       
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        <div class="row"> <div class="regrow text-center block mt-1 w-full">
+            <a class="cregister" href="{{ route('register') }}">Register</a> to rate organizations, make pledges and much more.
+        </div></div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
