@@ -41,7 +41,7 @@
                    <button type="button" class="glyphicon fltrightbtn pledgebtn" onClick="popup(this)" id="{{$pledge->pledge_id}}">
                   <b>Learn more: &#9432; </b></button> 
                 </li>
-                <div id="popupmsg{{$pledge->pledge_id}}" style="display:none;"> {{$pledge->description}}</div>
+                <div id="popupmsg{{$pledge->pledge_id}}" style="display:none;"> {!! $pledge->description !!}</div>
                 @endforeach
         
                 </ul>
