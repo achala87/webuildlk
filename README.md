@@ -15,7 +15,7 @@ Author: Achala Arunalu Meddegama
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [achala.meddegama@gmail.com](achala.meddegama@gmail.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel, please send an e-mail to Achala Arunalu via [achala.meddegama@gmail.com](achala.meddegama@gmail.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
