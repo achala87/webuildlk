@@ -1,0 +1,46 @@
+name: DO wblk wk1
+on:
+  push:
+    branches: [ main ]
+jobs:
+  master_deploy: 
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v2
+    - name: Set current_timestamp
+      run: |
+          echo "current_timestamp=`date '+%y%m%d%H%M%S'`" >> $GITHUB_ENV
+    - name: Install dependencies
+      uses: php-actions/composer@v5
+      with:
+        php_version: 7.4
+        version: 1
+    - name: Laravel mix
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+        registry-url: https://registry.npmjs.org/
+    - run: |
+          npm i
+          npm run prod
+    - name: Deploy to Server
+      uses: appleboy/scp-action@master
+      with:
+        host: webuildlk.com
+        username: achala
+        key: ${{secrets.DO_SSH}}
+        port: 22
+        source: "."
+        target: "/var/www/webuildlk.com/releases/${{ env.current_timestamp }}"
+    - name: Creating symlink
+      uses: appleboy/ssh-action@master
+      with: 
+        host: webuildlk.com
+        username: achala
+        key: ${{secrets.DO_SSH}}
+        port: 22
+        script: |
+          ln -sfn /var/www/webuildlk.com/releases/${{ env.current_timestamp }} /var/www/webuildlk.com/public_html
+          ln -sfn /var/www/webuildlk.com/.env /var/www/webuildlk.com/public_html/.env
+          chmod -R 777 /var/www/webuildlk.com/public_html/storage
