@@ -6,9 +6,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <img src="/webuildlk-logo.png" width="70px;" height="70px">
         </x-slot>
         <div class="mt-4 regrow"><p style="text-align:center;">Non-validated accounts will be frozen, please enter authentic details</p></div>
         <!-- Validation Errors -->
