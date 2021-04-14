@@ -2,18 +2,17 @@
 #rate_org {
   background-color: #ffffff;
   margin: 100px auto;
-  font-family: Raleway;
-  padding: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   width: 80%;
   min-width: 300px;
 }
 
 
 input {
-  padding: 10px;
+  padding: 5px;
   width: 100%;
-  font-size: 1rem;
-  font-family: Raleway;
+  font-size: 0.9rem;
   border: 1px solid #aaaaaa;
 }
 
@@ -48,6 +47,9 @@ form .error {
   transition: opacity .2s
 }
 
+#rate_org label{ font-size:0.9rem; padding-top:8px;}
+#rate_org input{  font-size:0.9rem; margin-top:2px; padding-top:2px;}
+#rate_org span{  font-size:0.8rem; margin-top:2px; padding-top:2px;}
 </style>
 
 @section('title', 'Rate organization')
@@ -81,29 +83,29 @@ form .error {
         <form action="/add_org_rating" method="post" style="margin: -50px auto;" id="rate_org" name="rate_org" enctype="multipart/form-data">
                     @csrf
         <label for="description">Describe why you are rating this organization *</label>
-        <p><input type="text" placeholder="" id="description" name="description"></p>
+        <input type="text" placeholder="" id="description" name="description">
         <input type="hidden" id="tokenid" name="tokenid" value="{{ $tokenid }}">
 
         <label>When did you encounter this experience*</label>
         <div class="row">
         <div class="col-md-6">
-        <p>From:<input type="date" id="from" onchange="copyDateFromToTo(this.value)" name="from" placeholder="from"></p>
+        From:<input type="date" id="from" onchange="copyDateFromToTo(this.value)" name="from" placeholder="from">
         </div>
         <div class="col-md-6">
-        <p>To:<input type="date" class="extrafields" onchange="date_diff_days()" id="to" name="to" placeholder="to"></p>
+        To:<input type="date" class="extrafields" onchange="date_diff_days()" id="to" name="to" placeholder="to">
         </div></div>   
 
         <label for="officers">Department, Designation/ Names of officers involed* </label>
-        <p><input type="text" id="officers" name="officers" placeholder="i.e. [Services unit, Admin officer: Ruwan Danapala]"></p>
+        <input type="text" id="officers" name="officers" placeholder="i.e. [Services unit, Admin officer: Ruwan Danapala]">
 
         <div class="row">
         <div class="col-md-6">
         <label for="service_requested">Services you requested from this organization*</label>
-        <p><input type="text" id="service_requested" name="service_requested" placeholder=""></p>
+        <input type="text" id="service_requested" name="service_requested" placeholder="">
         </div>
         <div class="col-md-6">
         <label for="service_recieved">Services you recived from this organization*</label>
-        <p><input type="text" id="service_recieved" name="service_recieved" placeholder=""></p>
+        <input type="text" id="service_recieved" name="service_recieved" placeholder="">
         </div></div>
 
         <label>Rate organization *</label>
@@ -112,41 +114,53 @@ form .error {
 
         <div class="row">
         <div class="col-md-6">
-          Poor
+          <small>Poor</small>
           <input type="range" class="rating" min="0" max="100" value="00" class="slider" id="service_quality" name="service_quality">
-          Very Good
-          <p>Overall Service quality: <span id="rating1"></span></p>
+          <small>Very Good</small><br/>
+          <span style="align:center">Service quality: <span id="rating1"></span></span>
         </div>
         <div class="col-md-6">
-          Poor 
+        <small>Poor</small> 
           <input type="range" class="rating" min="0" max="100" value="00" class="slider" id="process_clarity" name="process_clarity">
-          Very Good
-          <p style="align:center">Guidance and Information on Process: <span id="rating2"></span></p>
+          <small>Very Good</small><br/>
+          <span style="align:center">Guidance and Information on Process: <span id="rating2"></span></span>
         </div></div>
 
         <div class="row">
         <div class="col-md-6">
-          Poor
+        <small> Poor</small>
           <input type="range" class="rating" min="0" max="100" value="00" class="slider" id="efficiency_timeliness" name="efficiency_timeliness">
-          Very Good
-          <p>Punctuality and Efficiency: <span id="rating3"></span></p>
+          <small> Very Good </small><br/>
+          <span>Punctuality and Efficiency: <span id="rating3"></span></span>
           </div>
+          
           <div class="col-md-6">
-          None
-          <input type="range" class="rating" min="0" max="100" value="00" class="slider" id="bribery_corruption" name="bribery_corruption">
-          Very High
-          <p>Corruption, Bribery, Malpractices: <span id="rating4"></span></p>
-          </div></div>
+          
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="admin" name="admin" onclick="corruption()" value="admin">
+          <label class="form-check-label" for="admin"><small>Administrative</small></label>
         </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="executive" name="executive" onclick="corruption()" value="executive">
+          <label class="form-check-label" for="executive"><small>Executive</small></label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="political" name="political" onclick="corruption()" value="political" >
+          <label class="form-check-label" for="political"><small>Political</small></label>
+        </div>
+        <br/>
+          <span>Corruption, Bribery, Malpractices: <span id="rating4"></span>/100</span>
+          </div></div>
+      
 
         <div class="row">
         <div class="col-md-6">
         <label for="no_days">Number of days taken to provide service </label>
-        <p><input type="text" placeholder="" id="no_days" name="no_days" class="extrafields"></p>
+        <input type="text" placeholder="" id="no_days" name="no_days" class="extrafields">
         </div>
         <div class="col-md-6">
         <label for="reference_no">Reference numbers of your file/ recipt if any</label>
-        <p><input type="text" id="reference_no" name="reference_no" placeholder="" class="extrafields"></p>
+        <input type="text" id="reference_no" name="reference_no" placeholder="" class="extrafields">
         </div></div>
 
         <label for="evidence">Evidence upload [not mandatory]</label>
@@ -165,7 +179,7 @@ form .error {
 
         <br>
         <label for="msg_to_org">Message to organization </label>
-        <p><input type="text" placeholder="" id="msg_to_org" name="msg_to_org" class="extrafields" oninput="this.className = ''"></p>
+        <input type="text" placeholder="" id="msg_to_org" name="msg_to_org" class="extrafields">
         <br>
         <label for="send_user_information_to_authorities">Send this rating to the organization with all information I have shared here. <a id="ratingterms" onclick="showmodal();" href="#">(Subject to terms and conditions)</a></label>
         <input type="checkbox" id="send_user_information_to_authorities" name="send_user_information_to_authorities" value="1">
@@ -187,7 +201,7 @@ form .error {
     1. You report <br>
     2. Volunteers review the report <br>
     3. Volunteers submits reports for each organization <br>
-    4. We send a copy of all reports to the Presidents office and the CID. <br><br>
+    4. We send a copy of reports to higher authorities if relavant. <br><br>
 
     * Our process is entirely voluntary and may not be active on some occasions. 
   </div>
@@ -285,14 +299,31 @@ timeliness.oninput = function() {
   timeliness_rating.innerHTML = this.value;
 }
 
-// service_quality_slider
-var bribery = document.getElementById("bribery_corruption");
+// corruption
 var bribery_rating = document.getElementById("rating4");
-bribery_rating.innerHTML = bribery.value; // Display the default slider value
+var admin, executive, political, points;
+function corruption(){
+   points = 0;
+   admin = document.getElementById("admin");
+   executive = document.getElementById("executive");
+   political = document.getElementById("political");
 
-bribery.oninput = function() {
-  bribery_rating.innerHTML = this.value;
+  // If the checkbox is checked, display the output text
+  if (admin.checked == true){
+    points += 25;
+  }
+  if (executive.checked == true){
+    points += 25;
+  }
+  if (political.checked == true){
+    points += 50;
+  }
+  bribery_rating.innerHTML = points;
 }
+
+
+
+
 </script>
 <!-- end rating sliders -->
 

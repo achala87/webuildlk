@@ -153,7 +153,7 @@ class OrganizationsController extends Controller
 
      public function store_organization_rating(Request $request)
      {  
-         //dd($request->date_from);
+         //dd($request);
          $data = request()->validate([
          'description' => 'required',
          'from' => 'required'
@@ -172,11 +172,26 @@ class OrganizationsController extends Controller
          $review->service_quality = $request->service_quality;
          $review->process_clarity = $request->process_clarity;
          $review->efficiency_timeliness = $request->efficiency_timeliness;
-         $review->bribery_corruption = $request->bribery_corruption;
          $review->days_taken_to_recieve_service = $request->no_days;
          
+         $corruption = 0;
+         $admin_level_corruption = $request->has('admin') ? 25 : 0;
+         $executive_level_corruption = $request->has('executive') ? 25 : 0;
+         $political_level_corruption = $request->has('political') ? 50 : 0;
+         $corruption = $admin_level_corruption + $executive_level_corruption + $political_level_corruption;
+         
+         $review->bribery_corruption = $corruption;
+
+
          $evidence_array[] = $request->reference_no;
          $evidence_array[] = $request->evidence_path;
+
+         $review->staff = 0;
+         $review->meta_data =  json_encode(array(
+            "admin" => $admin_level_corruption, 
+            "executive" => $executive_level_corruption,
+            "political" => $political_level_corruption )
+        );
 
          //dd(json_encode($evidence_array));
          
