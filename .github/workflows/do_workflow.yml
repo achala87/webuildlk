@@ -27,20 +27,20 @@ jobs:
     - name: Deploy to Server
       uses: appleboy/scp-action@master
       with:
-        host: webuildlk.com
+        host: buildlk.com
         username: achala
         key: ${{secrets.DO_SSH}}
         port: 22
         source: "."
-        target: "/var/www/webuildlk.com/releases/${{ env.current_timestamp }}"
+        target: "/var/www/buildlk.com/releases/${{ env.current_timestamp }}"
     - name: Creating symlink
       uses: appleboy/ssh-action@master
       with: 
-        host: webuildlk.com
+        host: buildlk.com
         username: achala
         key: ${{secrets.DO_SSH}}
         port: 22
         script: |
-          ln -sfn /var/www/webuildlk.com/releases/${{ env.current_timestamp }} /var/www/webuildlk.com/public_html
-          ln -sfn /var/www/webuildlk.com/.env /var/www/webuildlk.com/public_html/.env
-          chmod -R 777 /var/www/webuildlk.com/public_html/storage
+          ln -sfn /var/www/buildlk.com/releases/${{ env.current_timestamp }} /var/www/buildlk.com/public_html
+          ln -sfn /var/www/buildlk.com/.env /var/www/buildlk.com/public_html/.env
+          chmod -R 777 /var/www/buildlk.com/public_html/storage
