@@ -3,8 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+        <meta name="description" content="A citizen initative from independant Sri Lankan's with a plan to sustainably developm Sri Lanka as a corruption free world leader with socialist, democratic, republican and technocratic values based on justice, 
+        meritocracy, pragmatic leadership, effective control of corruption by empowering the brightest citizens, value added industry - agrculture and ICT.">
+        <meta name="keywords" content="Sri Lanka Development, Sustainable Sri Lanka, Reject corruption in Sri Lanka, Sri Lanka patriots, Citizen activism Sri Lanka, Value added economy Sri Lanka, How to develop Sri Lanka">
+        <meta name="author" content="Achala Arunalu">
+        
+        <title>BuildLK is a citizen initiative to gather patriotic citizens</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -81,7 +85,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    #WeBuildLk invites you to share positive and negative experiences which our volunteers can forward to relavant authorities and even parliament. We must be active citizens to replace an unjust system.
+                                    #BuildLk invites you to share positive and negative experiences which our volunteers can forward to relavant authorities and even parliament. We must be active citizens to replace an unjust system.
                                 </div>
                             </div>
                         </div>
@@ -134,8 +138,8 @@
                     </div>
                 </div>
 
-                <div class="row"><div class="col-lg-12 text-gray-600 dark:text-gray-400 text-sm mt-2 sm:items-center">
-                    <p><small>Beta lauch - expect considerable updates soon <cite>~ Achala Arunalu</cite></small></p></div></div>
+                <div class="row"><div class="col-lg-12 md-6 sm-4 text-gray-600 dark:text-gray-400 text-sm mt-2 sm:items-center">
+                    <p style="margin:0 auto; display:block; text-align:center;"><small>Beta launch - expect considerable updates soon <cite>~ Achala Arunalu</cite></small></p></div></div>
 
                 <div class="flex justify-center mt-2 mb-2 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
@@ -145,7 +149,7 @@
                             </svg>
 
                             <a href="#" class="ml-1 underline">
-                                WE-BUILD-LK Merchandise
+                            <small> BUILD-LK Merchandise</small>
                             </a>
 
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
@@ -153,7 +157,7 @@
                             </svg>
 
                             <a href="#" class="ml-1 underline">
-                                Donate
+                            <small>Donate</small>
                             </a>
                         </div>
                     </div>
