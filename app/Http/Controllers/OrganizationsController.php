@@ -138,7 +138,7 @@ class OrganizationsController extends Controller
                 $insert[$key]['path'] = $path;
 
                 if(!move_uploaded_file($file,$path)){
-                    echo json_encode('0');
+                    echo json_encode('0'); die();
                  }
             }
          }
