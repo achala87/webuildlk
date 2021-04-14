@@ -27,7 +27,7 @@ p { color: #114982;  font-size: 0.9rem; font-weight: 500; line-height: 1.2rem; m
 .pclass { margin-top:1rem; color:#000; text-align: justify; text-justify: inter-word; }
 .h3class{font-size:0.9rem;font-weight: 600;}
 
-.sitecontent{width: 80%; margin:0 auto;}
+.sitecontent{width: 90%; margin:0 auto;}
 
 .list-group { width: 100%; margin:0 auto;  }
 .list-group-item { left: 0px; float:left; text-align:left;}

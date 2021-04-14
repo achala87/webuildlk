@@ -33,7 +33,7 @@
                      <!-- <th>Id</th> -->
                      <th>Title</th>
                      <th>District</th>
-                     <th>Rating</th>
+                     <!-- <th>Rating</th> -->
                      <th>Action</th>
                   </tr>
                </thead>
@@ -57,7 +57,7 @@
                   //   { data: 'id', name: 'id' },
                     { data: 'title', name: 'title' },
                     { data: 'district', name: 'district' },
-                    { data: 'avg_rating', name: 'avg_rating' },
+                  //   { data: 'avg_rating', name: 'avg_rating' },
                     { data: 'action', name: 'action' }
                  ]
        });
