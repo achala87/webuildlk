@@ -8,14 +8,11 @@
   min-width: 300px;
 }
 
-h1 {
-  text-align: center;  
-}
 
 input {
   padding: 10px;
   width: 100%;
-  font-size: 17px;
+  font-size: 1rem;
   font-family: Raleway;
   border: 1px solid #aaaaaa;
 }
@@ -27,10 +24,6 @@ form .error {
 /* END WIZARD SLIDER */
 
 /*RATING SLIDER */
-
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-}
 
 /* previews of uploads */
 .preview_row {
@@ -55,45 +48,6 @@ form .error {
   transition: opacity .2s
 }
 
-
-/* The Modal (background) */
-.modal1 {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content1 {
-  background-color: #fefefe;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 75%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
 </style>
 
 @section('title', 'Rate organization')
@@ -120,8 +74,8 @@ form .error {
       @endif
         <p style="text-align:center; margin-top:1rem; font-size:0.8rem;">This process would take <span style="color:#678736; font-weight:bold;"> ~3 minitues </span>. Feedback of people, processes, services and products helps organizations improve quality. 
         <!-- Button trigger modal for information popup -->
-        <button type="button" class="glyphicon" id="myBtn">
-        <b>Tip: &#9432; </b> 
+        <button type="button" onclick="showmodal();" class="glyphicon" id="myBtn">
+        <b>How this works: &#9432; </b> 
         </button></p>
         
         <form action="/add_org_rating" method="post" style="margin: -50px auto;" id="rate_org" name="rate_org" enctype="multipart/form-data">
@@ -181,7 +135,7 @@ form .error {
           None
           <input type="range" class="rating" min="0" max="100" value="00" class="slider" id="bribery_corruption" name="bribery_corruption">
           Very High
-          <p>Involvement of Bribery and Malpractices: <span id="rating4"></span></p>
+          <p>Corruption, Bribery, Malpractices: <span id="rating4"></span></p>
           </div></div>
         </div>
 
@@ -213,7 +167,7 @@ form .error {
         <label for="msg_to_org">Message to organization </label>
         <p><input type="text" placeholder="" id="msg_to_org" name="msg_to_org" class="extrafields" oninput="this.className = ''"></p>
         <br>
-        <label for="send_user_information_to_authorities">Send this rating to the organization with all information I have shared here. <a href="#">(Subject to terms and conditions)</a></label>
+        <label for="send_user_information_to_authorities">Send this rating to the organization with all information I have shared here. <a id="ratingterms" onclick="showmodal();" href="#">(Subject to terms and conditions)</a></label>
         <input type="checkbox" id="send_user_information_to_authorities" name="send_user_information_to_authorities" value="1">
         <br>
         <label for="correct_information">I confirm the above information is true and correct to the best of my knowledge</label>
@@ -224,9 +178,9 @@ form .error {
         </form>
 
 <!-- The Modal -->
-<div id="myModal" class="modal1">
+<div id="myModal" class="modal">
   <!-- Modal content -->
-  <div class="modal-content1">
+  <div class="modal-content">
     <span class="close">&times;</span>
     <h3>How this works.</h3>
     
@@ -255,7 +209,7 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
+function showmodal() {
   modal.style.display = "block";
 }
 
