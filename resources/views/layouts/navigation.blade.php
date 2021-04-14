@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center" style="padding-left:10%;">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="#">
                         <!-- <x-application-logo class="block h-10 w-auto fill-current text-gray-600" /> -->
                         <img class="block h-14 w-auto fill-current text-gray-600" src="{{ asset('/webuildlk-logo.png') }}" />
                     </a>

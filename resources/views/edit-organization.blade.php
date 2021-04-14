@@ -25,7 +25,7 @@
 
       <div class="form-group">
         <label for="formGroupExampleInput">Title</label>
-        <input type="text" name="title" class="form-control" id="formGroupExampleInput" placeholder="Please enter title" value="{{ $organization->title }}">
+        <input type="text" disabled name="title" class="form-control" id="formGroupExampleInput" placeholder="Please enter title" value="{{ $organization->title }}">
         <span class="text-danger">{{ $errors->first('title') }}</span>
       </div> 
 
