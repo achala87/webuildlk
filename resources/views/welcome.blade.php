@@ -139,7 +139,7 @@
                 </div>
 
                 <div class="row"><div class="col-lg-12 md-6 sm-4 text-gray-600 dark:text-gray-400 text-sm mt-2 sm:items-center">
-                    <p style="margin:0 auto; display:block; text-align:center;"><small>Beta launch - expect considerable updates soon <cite>~ Achala Arunalu</cite></small></p></div></div>
+                    <p style="margin:0 auto; display:block; text-align:center;"><small>Beta launch - expect considerable updates soon <cite>~ Team #buildlk</cite></small></p></div></div>
 
                 <div class="flex justify-center mt-2 mb-2 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
