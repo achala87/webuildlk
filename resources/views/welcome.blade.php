@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="A citizen initative from independant Sri Lankan's with a plan to sustainably developm Sri Lanka as a corruption free world leader with socialist, democratic, republican and technocratic values based on justice, 
-        meritocracy, pragmatic leadership, effective control of corruption by empowering the brightest citizens, value added industry - agrculture and ICT.">
+        <meta name="description" content="A citizen initative from independant Sri Lankan's with a plan to sustainably develop Sri Lanka as a corruption free world leader with socialist, democratic, republican, evironmental and technocratic values based on justice, 
+        meritocracy, pragmatic leadership, practically corruption free state by empowering the brightest citizens to govern value added industry and agrculture and ICT.">
         <meta name="keywords" content="Sri Lanka Development, Sustainable Sri Lanka, Reject corruption in Sri Lanka, Sri Lanka patriots, Citizen activism Sri Lanka, Value added economy Sri Lanka, How to develop Sri Lanka">
-        <meta name="author" content="Achala Arunalu">
+        <meta name="author" content="Achala Arunalu Meddegama">
         
         <title>BuildLK is a citizen initiative to gather patriotic citizens</title>
 
