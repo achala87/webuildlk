@@ -178,6 +178,9 @@ return [
         //data table provider
         Yajra\Datatables\DatatablesServiceProvider::class,
 
+        //auditing
+        OwenIt\Auditing\AuditingServiceProvider::class,
+
     ],
 
     /*
@@ -232,6 +235,8 @@ return [
         
         //data tables
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        
+
     ],
 
 ];

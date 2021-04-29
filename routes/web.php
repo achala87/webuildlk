@@ -54,6 +54,11 @@ Route::get('value-added-economy', [EconomyController::class, 'value_added_produc
 //centralized-cities-environment
 Route::get('centralized-cities-environment', [EnvironmentController::class, 'centralized_cities_concept'])->name('centralized-cities-environment');
 
+//about us page
+Route::get('about-us', function () {
+    return view('about-us');
+})->name('about-us');
+
 //coming soon
 Route::get('coming-soon', [SystemMessagesController::class, 'index'])->name('coming-soon');
 

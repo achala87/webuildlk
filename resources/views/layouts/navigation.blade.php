@@ -43,6 +43,20 @@
                         {{ __('Centralized Cities, Environment & Constitution') }}
                     </x-nav-link>
                     </div>
+
+                    @if (Route::has('login'))
+                        @auth
+                            <!-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700">Dashboard</a> -->
+                        @else
+                        <div class="pt-2 pb-3 space-y-1">
+                            <a href="{{ route('login') }}" class="ml-4 text-sm text-gray-700">Login</a></div>
+
+                            @if (Route::has('register'))
+                        <div class="pt-2 pb-3 space-y-1">
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Register</a></div>
+                            @endif
+                        @endauth
+                @endif
                    
 
                   
@@ -126,6 +140,20 @@
                         {{ __('Centralized Cities & Constitution') }}
             </x-responsive-nav-link>
         </div>
+        @if (Route::has('login'))
+                        @auth
+                            <!-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700">Dashboard</a> -->
+                        @else
+                        <div class="pt-2 pb-3 space-y-1">
+                            <a href="{{ route('login') }}" class="ml-4 text-sm text-gray-700">Login</a></div>
+
+                            @if (Route::has('register'))
+                        <div class="pt-2 pb-3 space-y-1">
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Register</a></div>
+                            @endif
+                        @endauth
+                @endif
+
 
         <!-- Responsive Settings Options -->
            @if (Auth::check())<div class="pt-4 pb-1 border-t border-gray-200">

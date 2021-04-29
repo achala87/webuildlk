@@ -55,6 +55,9 @@
                 <li class="nav-item">
                     <a href="{{ route('centralized-cities-environment') }}" class="ml-4 text-sm text-gray-700">Environment</a>
                 </li> 
+                <li class="nav-item">
+                    <a href="{{ route('about-us') }}" class="ml-4 text-sm text-gray-700">About</a>
+                </li> 
                 
                 @if (Route::has('login'))
                         @auth

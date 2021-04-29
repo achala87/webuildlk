@@ -76,6 +76,28 @@ ol.q {list-style-type: lower-roman; margin-left:1.5rem; font-size:0.75rem; line-
   cursor: pointer;
 }
 
+.card {
+  /* Add shadows to create the "card" effect */
+  width:330px;
+  height:300px;
+  margin-left:1.2em;
+  margin-top:1em;
+  float:left;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container2 {
+  padding: 2px 16px;
+  overflow-y: scroll;
+}
         </style>
     </head>
     <body class="font-sans antialiased">
