@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /admin
+
+Sitemap: https://buildlk.com/sitemap.xml

@@ -6,6 +6,7 @@ use App\Http\Controllers\SystemMessagesController;
 use App\Http\Controllers\AntiCorruptionController;
 use App\Http\Controllers\EconomyController;
 use App\Http\Controllers\EnvironmentController;
+use App\Http\Controllers\AuditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use App\Http\Controllers\EnvironmentController;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group.
 |
 */
 
@@ -61,5 +62,11 @@ Route::get('about-us', function () {
 
 //coming soon
 Route::get('coming-soon', [SystemMessagesController::class, 'index'])->name('coming-soon');
+
+//audit records admin dashboard
+Route::get('audits', [AuditController::class, 'index']);
+
+// Route::get('audits', 'AuditController@index')
+// ->middleware('auth', \App\Http\Middleware\AllowOnlyAdmin::class);
 
 require __DIR__.'/auth.php';

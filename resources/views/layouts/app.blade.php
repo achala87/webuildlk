@@ -16,6 +16,17 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link  href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
         <link rel="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css" />
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCEW4KDEWZ"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-NCEW4KDEWZ');
+        </script>
+        
         <style>
         /* CUSTOM STYLES APRIL 2020 ACHALA */
 
@@ -105,15 +116,17 @@ ol.q {list-style-type: lower-roman; margin-left:1.5rem; font-size:0.75rem; line-
             @include('layouts.navigation')
 
             <!-- Page Heading -->
+            @isset($header)
             <header class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-2 px-6 sm:px-8 lg:px-28">
                   {{ $header }}
                 </div>
-            </header>
+            </header> @endisset
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+            @isset($slot)
+                {{ $slot }}  @endisset
             </main>
         </div>
     </body>

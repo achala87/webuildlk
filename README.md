@@ -17,6 +17,11 @@ Author: Achala Arunalu Meddegama
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Achala Arunalu via [achala.meddegama@gmail.com](achala.meddegama@gmail.com). All security vulnerabilities will be promptly addressed.
 
+## packages
+composer require owen-it/laravel-auditing
+https://github.com/spatie/laravel-robots-middleware
+composer require rezaamini-ir/laravel-easypanel
+
 ## License
 
 The framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT) and build using Laravel 8.

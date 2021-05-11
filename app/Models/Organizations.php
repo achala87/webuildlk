@@ -18,6 +18,6 @@ class Organizations extends Model implements Auditable
      */
     public function organization_reviews()
     {
-        return $this->hasMany(Organization_reviews::class, 'organization_id');
+        return $this->hasMany(Organization_Reviews::class, 'organization_id');
     }
 }

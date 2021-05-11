@@ -21,10 +21,15 @@ class Organization_Reviews extends Model implements Auditable
     ];
 
     /**
-     * Get the user that owns the phone.
+     * Get the organization that owns the phone.
      */
-    public function oragnization()
+    public function organization()
     {
-        return $this->belongsTo(Oragnizations::class, 'id');
+        return $this->belongsTo(Organizations::class, 'organization_id','id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by_user_id');
     }
 }

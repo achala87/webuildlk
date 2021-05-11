@@ -42,7 +42,15 @@
                     <x-nav-link :href="route('centralized-cities-environment')" :active="request()->routeIs('centralized-cities-environment')">
                         {{ __('Centralized Cities, Environment & Constitution') }}
                     </x-nav-link>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
+                        {{ __('About') }}
+                    </x-nav-link>
                     </div>
+
+                   
+                
 
                     @if (Route::has('login'))
                         @auth
