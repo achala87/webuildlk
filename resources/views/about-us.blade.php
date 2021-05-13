@@ -46,8 +46,8 @@
                   <h4><b>Shiran Vidanapathirana</b></h4>
                   <h5>Lawyer, Husband and Seeker of a just society</h5>
                   <a href = "mailto: abc@example.com">Send Email</a>
-                  <p>Over 14 years in Telecommunications as a senior manager. 
-                  He is an avid social worker in his spare time volunteering with the Cancer hospital, Reforest Sri Lanka, Local Dhamma school.</p>
+                  <p>Is a lawyer and an academic lecturer at the University of Peradeniya.  
+                 He is a promoter of public interest litigation and supports social work and is a committee member of Reforest Sri Lanka</p>
             </div>
       </div>
       
@@ -57,8 +57,7 @@
                   <h4><b>Jayantha Sirisena</b></h4>
                   <h5>Software Engineer, father and humanitarian</h5>
                   <a href = "mailto: abc@example.com">Send Email</a>
-                  <p>Over 14 years in Telecommunications as a senior manager. 
-                  He is an avid social worker in his spare time volunteering with the Cancer hospital, Reforest Sri Lanka, Local Dhamma school.</p>
+                  <p>Jayantha is a self made technology professional with a BSc from CSE, University of Moratuwa. He is a regular reforester with Reforest Sri Lanka and supports other humanitarian causes such as public healthecare and social support schemes.</p>
             </div>
       </div>
 
