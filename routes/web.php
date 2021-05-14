@@ -27,7 +27,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/list-organizations', [OrganizationsController::class, 'index'])->name('list-organizations');
+Route::get('/logintoplatform', function () {
+    return redirect('list-organizations');
+});
+
+Route::get('list-organizations', [OrganizationsController::class, 'index'])->name('list-organizations');
 
 Route::get('rate-organization/{id?}', [OrganizationsController::class, 'set_org_rating'])->name('rate-organization')->middleware('auth');
 
