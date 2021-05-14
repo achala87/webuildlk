@@ -17,7 +17,10 @@ class Organization_Reviews extends Model implements Auditable
         'description',
         'created_by_user_id',
         'organization_id',
-        'date_from'
+        'date_from', 
+        'status',
+        'remarks',
+        'reviewer_id',
     ];
 
     /**

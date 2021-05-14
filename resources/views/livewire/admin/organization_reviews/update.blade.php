@@ -16,8 +16,13 @@
 
             <!-- Title Input -->
             <div class='form-group'>
-                <label for='' class='col-sm-2 control-label'> {{ __('User') }}</label>
+                <label for='' class='col-sm-2 control-label'> {{ __('Reviewed by') }}</label>
                 {{ $organization_reviews->user->name }}
+            </div>
+
+            <div class='form-group'>
+                <label for='' class='col-sm-2 control-label'> {{ __('Review of') }}</label>
+                {{ $organization_reviews->organization->title }}
             </div>
 
             <div class='form-group'>
@@ -122,18 +127,32 @@
                         @break
 
                     @case($bcv <= 50)
-                       Slightly Corrupt
+                       Slightly Corrupt or Corrupt
                         @break
 
                     @case($bcv <= 75)
-                        Corrupt
+                        Corrupt or Highly Corrupt
                         @break
 
                     @case($bcv <= 100)
                         Extremely Corrupt
                         @break    
                 @endswitch
-                {{ $organization_reviews->meta_data }}
+                
+                <?php $corruption = json_decode($organization_reviews->meta_data, true); ?>
+                @if($corruption['admin'] > 0 || $corruption['executive'] > 0 || $corruption['political'] > 0)
+                | <i> Corruption at: 
+                    @if($corruption['admin'] > 0)
+                        administration
+                    @endif
+                    @if($corruption['executive'] > 0)
+                        {{ ($corruption['admin'] > 0 ? ', ' : '' )}} executive
+                    @endif
+                    @if($corruption['political'] > 0)
+                    {{ ($corruption['admin'] > 0 || $corruption['executive'] > 0  ? ', ' : '' )}} political
+                    @endif
+                 level. </i>
+                 @endif 
             </div>
 
         
@@ -176,15 +195,16 @@
             <div class='form-group'>
                 <label for='status' class='col-sm-2 control-label'> {{ __('Review status') }}</label>
                
-                <select name="status"> 
-                    <option value="0" {{ ($organization_reviews->status==0 ? "selected" : "") }}>Pending</option>
-                    <option value="1" {{ ($organization_reviews->status==1 ? "selected" : "") }}>Processed</option>
+                <select wire:model.lazy='status' name="status"> 
+                    <option value="0" {{ ($organization_reviews->status==0 ? "selected" : "") }} value="0">Pending</option>
+                    <option value="1" {{ ($organization_reviews->status==1 ? "selected" : "") }} value="1">Processed</option>
                 </select>
             </div>
-
+    
             <div class='form-group'>
                 <label for='' class='col-sm-2 control-label'> {{ __('Reviewer Remarks') }}</label>
-                <input type="text" id="rremarks" name="rremarks">
+                <textarea wire:model.lazy='remarks' rows="4" id="remarks" name="remarks" cols="60">
+                </textarea>
             </div>
             
             

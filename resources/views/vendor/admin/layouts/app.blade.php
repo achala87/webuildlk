@@ -104,6 +104,12 @@
                 <!-- Right side toggle and nav items -->
                 <ul class="navbar-nav float-right">
                     <!-- User profile and search -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <span class="ml-2 d-none d-lg-inline-block"><span>{{ __('Home') }}</span>
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
