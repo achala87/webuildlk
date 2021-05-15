@@ -19,50 +19,57 @@ use App\Http\Controllers\AuditController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/en');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['prefix' => '{language}'], function(){
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
-Route::get('/logintoplatform', function () {
-    return redirect('list-organizations');
-});
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
 
-Route::get('list-organizations', [OrganizationsController::class, 'index'])->name('list-organizations');
+    Route::get('/logintoplatform', function () {
+        return redirect('list-organizations');
+    });
 
-Route::get('rate-organization/{id?}', [OrganizationsController::class, 'set_org_rating'])->name('rate-organization')->middleware('auth');
+    Route::get('list-organizations', [OrganizationsController::class, 'index'])->name('list-organizations');
 
-//Route::get('/list-organization', 'OrganizationsController@index')->name('list-organization');
+    Route::get('rate-organization/{id?}', [OrganizationsController::class, 'set_org_rating'])->name('rate-organization')->middleware('auth');
 
-Route::get('add-organization', [OrganizationsController::class, 'create'])->middleware('auth');
-Route::post('post-organization', [OrganizationsController::class, 'store']);
+    //Route::get('/list-organization', 'OrganizationsController@index')->name('list-organization');
 
-Route::get('edit-organization/{id?}', [OrganizationsController::class, 'edit'])->middleware('auth');
-Route::post('update-organization', [OrganizationsController::class, 'update']);
+    Route::get('add-organization', [OrganizationsController::class, 'create'])->middleware('auth');
+    Route::post('post-organization', [OrganizationsController::class, 'store']);
 
-Route::get('delete-organization/{id?}', [OrganizationsController::class, 'delete']);
+    Route::get('edit-organization/{id?}', [OrganizationsController::class, 'edit'])->middleware('auth');
+    Route::post('update-organization', [OrganizationsController::class, 'update']);
 
-Route::post('upload-evidence', [OrganizationsController::class, 'store_evidence']);
-Route::post('add_org_rating', [OrganizationsController::class, 'store_organization_rating'])->name('add_org_rating');
-Route::get('view-organization-rating/{id?}', [OrganizationsController::class, 'view_rating']);
+    Route::get('delete-organization/{id?}', [OrganizationsController::class, 'delete']);
 
-//anti-corruption
-Route::get('anti-corruption', [AntiCorruptionController::class, 'reject_corruption_pledge'])->name('anti-corruption');
-Route::post('make-pledge', [AntiCorruptionController::class, 'store_pledge'])->middleware('auth');
+    Route::post('upload-evidence', [OrganizationsController::class, 'store_evidence']);
+    Route::post('add_org_rating', [OrganizationsController::class, 'store_organization_rating'])->name('add_org_rating');
+    Route::get('view-organization-rating/{id?}', [OrganizationsController::class, 'view_rating']);
 
-//value-added-economy
-Route::get('value-added-economy', [EconomyController::class, 'value_added_production'])->name('value-added-economy');
+    //anti-corruption
+    Route::get('anti-corruption', [AntiCorruptionController::class, 'reject_corruption_pledge'])->name('anti-corruption');
 
-//centralized-cities-environment
-Route::get('centralized-cities-environment', [EnvironmentController::class, 'centralized_cities_concept'])->name('centralized-cities-environment');
+    //value-added-economy
+    Route::get('value-added-economy', [EconomyController::class, 'value_added_production'])->name('value-added-economy');
 
-//about us page
-Route::get('about-us', function () {
-    return view('about-us');
-})->name('about-us');
+    //centralized-cities-environment
+    Route::get('centralized-cities-environment', [EnvironmentController::class, 'centralized_cities_concept'])->name('centralized-cities-environment');
+
+    //about us page
+    Route::get('about-us', function () { return view('about-us'); })->name('about-us');
+
+     //pledge
+    Route::post('make-pledge', [AntiCorruptionController::class, 'store_pledge'])->middleware('auth');
+
+}); //end group lang
+
+
 
 //coming soon
 Route::get('coming-soon', [SystemMessagesController::class, 'index'])->name('coming-soon');

@@ -24,9 +24,9 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <div class="row"> <div class="regrow text-center block mt-1 w-full">
-            <a class="cregister" href="{{ route('register') }}">Register</a> to rate organizations, make pledges and much more.
+            <a class="cregister" href="{{ route('register', app()->getLocale()) }}">Register</a> to rate organizations, make pledges and much more.
         </div></div>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login', app()->getLocale()) }}">
             @csrf
 
             <!-- Email Address -->
@@ -56,7 +56,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request', app()->getLocale()) }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif

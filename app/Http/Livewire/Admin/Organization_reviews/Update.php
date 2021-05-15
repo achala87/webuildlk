@@ -29,7 +29,9 @@ class Update extends Component
         $this->reviewer_id = $this->organization_reviews->reviewer_id;   
         
         $rem = json_decode($this->organization_reviews->remarks, true);
-        $this->fill(['remarks' => $rem[0]['remark']]);
+        if(!is_null($rem)){
+            $this->fill(['remarks' => $rem[0]['remark']]);
+        }else{ $this->fill(['remarks' => '']); }
     }
 
     public function updated($input)

@@ -10,19 +10,19 @@
                 <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a href="{{ route('list-organizations') }}" class="text-sm text-gray-700 underline">Rate Organization</a>
+                    <a href="{{ route('list-organizations', app()->getLocale()) }}" class="text-sm text-gray-700 underline">Rate Organization</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('anti-corruption') }}" class="ml-4 text-sm text-gray-700">I Pledge</a>
+                    <a href="{{ route('anti-corruption', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">I Pledge</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('value-added-economy') }}" class="ml-4 text-sm text-gray-700">Economy</a>
+                    <a href="{{ route('value-added-economy', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Economy</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('centralized-cities-environment') }}" class="ml-4 text-sm text-gray-700">Environment</a>
+                    <a href="{{ route('centralized-cities-environment', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Environment</a>
                 </li> 
                 <li class="nav-item">
-                    <a href="{{ route('about-us') }}" class="ml-4 text-sm text-gray-700">About</a>
+                    <a href="{{ route('about-us', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">About</a>
                 </li> 
                 
                 @if (Route::has('login'))
@@ -30,11 +30,11 @@
                             <!-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700">Dashboard</a> -->
                         @else
                         <li class="nav-item">
-                            <a href="{{ route('login') }}" class="ml-4 text-sm text-gray-700">Login</a></li>
+                            <a href="{{ route('login', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Login</a></li>
 
                             @if (Route::has('register'))
                         <li class="nav-item">
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Register</a></li>
+                            <a href="{{ route('register', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Register</a></li>
                             @endif
                         @endauth
                 @endif
@@ -52,11 +52,11 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">{{ Auth::user()->email }}</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}" onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" style="display: none;">
                         @csrf
                     </form>
 

@@ -33,10 +33,10 @@ class AntiCorruptionController extends Controller
             $d = User_Pledges::upsert($user_pledges , ['user_id', 'pledge_id'], ['updated_at'] );
             if($d){
                $request->session()->flash('sucessrating', 'Thank you for being an active citizen and pledging to rebuild Sri Lanka. Join our team and lead the change.');
-               return redirect()->route('anti-corruption');
+               return redirect()->route('anti-corruption', app()->getLocale());
            }else{
                $request->session()->flash('failrating','Failed!!! Please retry...');
-               return redirect()->route('anti-corruption');
+               return redirect()->route('anti-corruption', app()->getLocale());
             }     
     }
 }

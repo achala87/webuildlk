@@ -29,7 +29,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-            <form action="/make-pledge" method="post" id="rate_org" name="rate_org" enctype="multipart/form-data">
+            <form action="{{ url(app()->getLocale(), 'make-pledge') }}" method="post" id="rate_org" name="rate_org" enctype="multipart/form-data">
             @csrf
             <p>We need one more person to join us... you.</p>
             <ul class="list-group">            

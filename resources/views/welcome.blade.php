@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +22,8 @@
             body {
                 font-family: 'Nunito';
             }
+            h1{ font-size: 1em; }
+            h2{ font-size: 0.9em; }
         </style>
     </head>
     <body class="antialiased">
@@ -44,19 +46,19 @@
                 <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a href="{{ route('list-organizations') }}" class="text-sm text-gray-700 underline">Rate Organization</a>
+                    <a href="{{ route('list-organizations', app()->getLocale() ) }}" class="text-sm text-gray-700 underline">Rate Organization</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('anti-corruption') }}" class="ml-4 text-sm text-gray-700">I Pledge</a>
+                    <a href="{{ route('anti-corruption', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">I Pledge</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('value-added-economy') }}" class="ml-4 text-sm text-gray-700">Economy</a>
+                    <a href="{{ route('value-added-economy', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Economy</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('centralized-cities-environment') }}" class="ml-4 text-sm text-gray-700">Environment</a>
+                    <a href="{{ route('centralized-cities-environment', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Environment</a>
                 </li> 
                 <li class="nav-item">
-                    <a href="{{ route('about-us') }}" class="ml-4 text-sm text-gray-700">About</a>
+                    <a href="{{ route('about-us', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">About</a>
                 </li> 
                 
                 @if (Route::has('login'))
@@ -64,17 +66,22 @@
                             <!-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700">Dashboard</a> -->
                         @else
                         <li class="nav-item">
-                            <a href="{{ route('login') }}" class="ml-4 text-sm text-gray-700">Login</a></li>
+                            <a href="{{ route('login', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Login</a></li>
 
                             @if (Route::has('register'))
                         <li class="nav-item">
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Register</a></li>
+                            <a href="{{ route('register', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Register</a></li>
                             @endif
                         @endauth
                 @endif
                 </ul>
             </div>
             </nav></div>
+
+            <div class="container mt-3">
+                <h1>A citizen effort for a corruption free nation that works for the betterment of all citizens and other life who make Sri Lanka a unique place we call home</h1>
+            </div>
+
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
@@ -83,7 +90,7 @@
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
                                     <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('list-organizations') }}" class="underline text-gray-900 dark:text-white">{{ __('rate_org_home_page_title') }}</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('list-organizations', app()->getLocale()) }}" class="underline text-gray-900 dark:text-white"><h2>{{ __('rate_org_home_page_title') }}<h2></a></div>
                             </div>
 
                             <div class="ml-12">
@@ -98,7 +105,7 @@
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
                                     <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
                                     <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('anti-corruption') }}" class="underline text-gray-900 dark:text-white">{{__('pledge_home_page_title')}}</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('anti-corruption', app()->getLocale()) }}" class="underline text-gray-900 dark:text-white"><h2>{{__('pledge_home_page_title')}}</h2></a></div>
                             </div>
 
                             <div class="ml-12">
@@ -114,7 +121,7 @@
                                 <path d="M3.938 6.497a6.958 6.958 0 0 0-.702 1.694L0 9v2l3.236.809c.16.6.398 1.169.702 1.694l-1.716 2.861 1.414 1.414 2.86-1.716a6.958 6.958 0 0 0 1.695.702L9 20h2l.809-3.236a6.96 6.96 0 0 0 1.694-.702l2.861 1.716 1.414-1.414-1.716-2.86a6.958 6.958 0 0 0 .702-1.695L20 11V9l-3.236-.809a6.958 6.958 0 0 0-.702-1.694l1.716-2.861-1.414-1.414-2.86 1.716a6.958 6.958 0 0 0-1.695-.702L11 0H9l-.809 3.236a6.96 6.96 0 0 0-1.694.702L3.636 2.222 2.222 3.636l1.716 2.86zM10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" fill-rule="evenodd">
                             </path>  
                                 </svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('value-added-economy') }}" class="underline text-gray-900 dark:text-white">{{__('value_added_home_page_title')}}</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('value-added-economy', app()->getLocale()) }}" class="underline text-gray-900 dark:text-white"><h2>{{__('value_added_home_page_title')}}</h2></a></div>
                             </div>
                             
                             <div class="ml-12">
@@ -127,7 +134,7 @@
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('centralized-cities-environment') }}" class="underline text-gray-900 dark:text-white">{{__('dev_plan_home_page_title')}}</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('centralized-cities-environment', app()->getLocale()) }}" class="underline text-gray-900 dark:text-white"><h2>{{__('dev_plan_home_page_title')}}</h2></a></div>
                             </div>
 
                             <div class="ml-12">

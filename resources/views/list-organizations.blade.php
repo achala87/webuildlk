@@ -62,23 +62,5 @@
                  ]
        });
      });
-
-   //   $('body').on('click', '.deleteOrganization', function () {
  
-   //      var org_id = $(this).data("id");
-   //      if(confirm("Are You sure want to delete !"))
-   //      {
-   //        $.ajax({
-   //            type: "get",
-   //            url: "{{ url('delete-organization') }}"+'/'+org_id,
-   //            success: function (data) {
-   //            var oTable = $('#laravel-datatable-crud').dataTable(); 
-   //            oTable.fnDraw(false);
-   //            },
-   //            error: function (data) {
-   //                console.log('Error:', data);
-   //            }
-   //        });
-   //     }
-   //  });   
    </script>
