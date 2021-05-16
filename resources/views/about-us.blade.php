@@ -28,13 +28,13 @@
                   <a href = "mailto: achala.meddegama@gmail.com">achala.meddegama@gmail.com</a>
                   <p>Over 12 years experinece in IT and is the founder of Reforest Sri Lanka. 
                   In addition to IT Achala has experience in high tech. Agriculture, Tourism and Social Entrepreneurship.
-                  He also worked at a government organization for nearly two years where he experiences government regulations and bureacracy
+                  He worked at a government organization for nearly two years where he experienced government regulations and bureacracy
                   which has provided some insights into process overhauls necessary for transparent and efficient public administration.
                   </p> 
                   <p>Achala also volunteered with independent political movements at their early stages (usually supporting environmental policy development) such as NPM and saw how ill-funded and mismanaged their
                   operations are, and how larger parties thwart genuine efforts by sending saboteurs. Achala is a founder of the 225apitaepa campaign which was
                   begun after the 56 day period when the parliament did not function in 2018 when the Mahinda Rajapakse lead opposition 
-                  and Maithripala Sirisena tried to replace Ranil Wickremasinghe as the Prime Minister, revealing yet again how connected they all are furthering 
+                  and Maithripala Sirisena tried to replace Ranil Wickremasinghe as the Prime Minister, revealing yet again how connected they all are, furthering 
                   his belief that all existing political forces and their families should be completely replaced at the highest levels to correct Sri Lanka's current desparate situation.
                   </p>
             </div>
