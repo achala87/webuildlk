@@ -37,7 +37,6 @@
             </div>
             </li>
         
-        
         @if (Route::has('login'))
                 @auth
                     <!-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700">Dashboard</a> -->
