@@ -1,10 +1,6 @@
 @section('title', 'Vote for corruption free politicians')
 <x-app-layout>
-   <x-slot name="header">
-       <div class="row"> 
-       <div class="col-md-12 ml-4"><i>WeBuildLk is a citizen initiative to sustainably develop a corruption free Sri Lanka</i></div> 
-    </div>
-   </x-slot>    
+<div class="container mt-3"><i>BuildLk is a citizen initiative to sustainably develop a corruption free Sri Lanka</i></div>  
       
       <div class="sitecontent"> 
       <div class="row"> 
@@ -15,10 +11,10 @@
         <h1 class="h1class">Value added production for economic prosperity</h1>
       </div>
 
-      <p class="pclass">It has been long past due that Sri Lanka started its own value added production from raw natural resourced we have traditionally exported. 
-      Let's end the expensive import culture of value added goods.</p>
+      <p class="pclass">It is long past due for Sri Lanka to start it's own value added production from raw natural resources we have traditionally exported. 
+      Let's end the expensive import culture of value added goods by manufacturing locally for local consumtion and export.</p>
 
-        <table class="table table-hover table-striped">
+      <table class="table table-hover table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>

@@ -22,6 +22,11 @@ use App\Http\Controllers\AuditController;
 Route::redirect('/', '/en');
 
 Route::group(['prefix' => '{language}'], function(){
+
+    Route::get('home', function () {
+        return view('welcome');
+    })->name('home');
+
     Route::get('/', function () {
         return view('welcome');
     });

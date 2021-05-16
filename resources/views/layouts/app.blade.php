@@ -96,7 +96,7 @@ ol.q {list-style-type: lower-roman; margin-left:1.5rem; font-size:0.75rem; line-
   height:300px;
   margin-left:1.2em;
   margin-top:1em;
-  float:left;
+  /* float:left; */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
@@ -107,15 +107,45 @@ ol.q {list-style-type: lower-roman; margin-left:1.5rem; font-size:0.75rem; line-
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+@media screen and (max-width: 425px) {
+  .cards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+  .card {
+    width: 100%;
+    margin-top: 18px;
+    border-radius: 5px;
+  }
+
+  .container2 {
+    width: 100%;
+    padding: 0px;
+    overflow-y: scroll;
+}
+}
+
 /* Add some padding inside the card container */
 .container2 {
   padding: 2px 16px;
   overflow-y: scroll;
+  margin:0 auto;
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  margin-top:2px;
+}
+
         </style>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="antialiased">
+        <div class="min-h-screen">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

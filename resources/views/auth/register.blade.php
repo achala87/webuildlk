@@ -6,7 +6,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <img src="/webuildlk-logo.png" width="70px;" height="70px">
+        <a href="{{ route('home', app()->getLocale()) }}" title="Home Page"> <img src="/webuildlk-logo.png" width="70px;" height="70px"> </a>
         </x-slot>
         <div class="mt-4 regrow"><p style="text-align:center;">Non-validated accounts will be frozen, please enter authentic details</p></div>
         <!-- Validation Errors -->

@@ -1,10 +1,5 @@
 <x-app-layout>@section('title', 'View Organization Rating')
-   <x-slot name="header">
-   <div class="container-fluid"><div class="row">
-       <div class="col-md-8" style="font-size:0.9rem;"><i>Rating organizations helps them improve services.</i></div> 
-       <div class="col-md-4"> <div style="float:right"><a href="{{ url('add-organization') }}" class="text-center btn btn-success mb-1">Create organization</a></div> 
-   </div></div> 
-   </x-slot>
+<div class="container mt-3"><i>Rating organizations helps them improve services1.</i></div>
        
       <div class="sitecontent"> 
       <div class="row"> 
@@ -14,6 +9,12 @@
       <div class="title">
         <h1 class="h1class">Select an organization to add a rating</h1>
       </div>
+      
+      <div class="row"> 
+         <p>If you 'search' and still can't find the organization you want to rate, create it and add your review rating</p>
+         <div style="col-md-12"><a href="{{ url('add-organization') }}" class="text-center btn btn-success mb-1">Create organization</a></div> 
+      </div> 
+
 
             @if(Session::has('sucessrating'))
                <div class="alert alert-success">

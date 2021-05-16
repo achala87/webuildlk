@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-        <img src="/webuildlk-logo.png" width="70px;" height="70px">
+        <a href="{{ route('home', app()->getLocale()) }}" title="Home Page"> <img src="/webuildlk-logo.png" width="70px;" height="70px"> </a>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">

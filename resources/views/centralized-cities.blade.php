@@ -1,10 +1,6 @@
 @section('title', 'Centralized cities and constitution')
 <x-app-layout>
-   <x-slot name="header">
-       <div class="row"> 
-       <div class="col-md-12 ml-4"><i>WeBuildLk is a citizen initiative to sustainably develop a corruption free Sri Lanka</i></div> 
-    </div>
-   </x-slot>
+<div class="container mt-3"><i>BuildLk is a citizen initiative to sustainably develop a corruption free Sri Lanka</i></div>
 
    <div class="sitecontent"> 
     <div class="row"> 

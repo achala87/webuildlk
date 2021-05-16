@@ -1,10 +1,8 @@
 @section('title', 'Vote for corruption free politicians')
 <x-app-layout>
-   <x-slot name="header">
-       <div class="row"> 
-       <div class="col-md-12 ml-4"><i>WeBuildLk is a citizen initiative to sustainably develop a corruption free Sri Lanka</i></div> 
-    </div>
-   </x-slot>
+
+    <div class="container mt-3"><i>BuildLk is a citizen initiative to sustainably develop a corruption free Sri Lanka</i></div>
+ 
 
       <div class="sitecontent"> 
       <div class="row"> 
@@ -29,7 +27,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-            <form action="{{ url(app()->getLocale(), 'make-pledge') }}" method="post" id="rate_org" name="rate_org" enctype="multipart/form-data">
+            <form action="{url(app()->getLocale(), 'make-pledge') }}" method="post" id="rate_org" name="rate_org" enctype="multipart/form-data">
             @csrf
             <p>We need one more person to join us... you.</p>
             <ul class="list-group">            
