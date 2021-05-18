@@ -11,7 +11,7 @@
       </div>
       
          <p>If you 'search' and still can't find the organization you want to rate, 
-         <a href="{{ url('add-organization') }}">Create organization</a> and add your review rating</p>
+         <a href="{{ route('add-organization', app()->getLocale()) }}">Create organization</a> and add your review rating</p>
    
  
 
@@ -51,7 +51,7 @@
            serverSide: true,
            responsive: true,
           ajax: {
-            url: "{{ url('list-organizations') }}",
+            url: "{{ route('list-organizations', app()->getLocale()) }}",
             type: 'GET',
            },
            columns: [

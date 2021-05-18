@@ -19,7 +19,11 @@ use App\Http\Controllers\AuditController;
 |
 */
 
-Route::redirect('/', '/en');
+Route::redirect('/', 'en/home');
+
+Route::get('/logintoplatform', function () {
+    return redirect('/');
+});
 
 Route::group(['prefix' => '{language}'], function(){
 
@@ -35,9 +39,7 @@ Route::group(['prefix' => '{language}'], function(){
         return view('dashboard');
     })->middleware(['auth'])->name('dashboard');
 
-    Route::get('/logintoplatform', function () {
-        return redirect('list-organizations');
-    });
+
 
     Route::get('list-organizations', [OrganizationsController::class, 'index'])->name('list-organizations');
 
@@ -45,11 +47,11 @@ Route::group(['prefix' => '{language}'], function(){
 
     //Route::get('/list-organization', 'OrganizationsController@index')->name('list-organization');
 
-    Route::get('add-organization', [OrganizationsController::class, 'create'])->middleware('auth');
-    Route::post('post-organization', [OrganizationsController::class, 'store']);
+    Route::get('add-organization', [OrganizationsController::class, 'create'])->name('add-organization')->middleware('auth');
+    Route::post('post-organization', [OrganizationsController::class, 'store'])->name('post-organization')->middleware('auth');
 
-    Route::get('edit-organization/{id?}', [OrganizationsController::class, 'edit'])->middleware('auth');
-    Route::post('update-organization', [OrganizationsController::class, 'update']);
+    Route::get('edit-organization/{id?}', [OrganizationsController::class, 'edit'])->name('edit-organization')->middleware('auth');
+    Route::post('update-organization', [OrganizationsController::class, 'update'])->name('update-organization')->middleware('auth');
 
     Route::get('delete-organization/{id?}', [OrganizationsController::class, 'delete']);
 
@@ -70,7 +72,7 @@ Route::group(['prefix' => '{language}'], function(){
     Route::get('about-us', function () { return view('about-us'); })->name('about-us');
 
      //pledge
-    Route::post('make-pledge', [AntiCorruptionController::class, 'store_pledge'])->middleware('auth');
+    Route::post('make-pledge', [AntiCorruptionController::class, 'store_pledge'])->name('make-pledge')->middleware('auth');
 
 }); //end group lang
 

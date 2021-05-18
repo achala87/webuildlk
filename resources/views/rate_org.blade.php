@@ -80,7 +80,7 @@ form .error {
         <b>How this works: &#9432; </b> 
         </button></p>
         
-        <form action="/add_org_rating" method="post" style="margin: -50px auto;" id="rate_org" name="rate_org" enctype="multipart/form-data">
+        <form action="{{ route('add_org_rating', app()->getLocale() ) }}" method="post" style="margin: -50px auto;" id="rate_org" name="rate_org" enctype="multipart/form-data">
                     @csrf
         <label for="description">Describe why you are rating this organization *</label>
         <input type="text" placeholder="" id="description" name="description">

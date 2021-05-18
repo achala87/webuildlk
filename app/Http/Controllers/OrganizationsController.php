@@ -22,10 +22,10 @@ class OrganizationsController extends Controller
             ]))
             ->addIndexColumn()
             ->addColumn('action', function($data){
-                   $dataid = Crypt::encryptString($data->id);
                    
-                   $editUrl = url('edit-organization/'.$dataid); 
-                   $rateUrl = url('rate-organization/'.$dataid);
+                   $dataid = Crypt::encryptString($data->id);
+                   $editUrl = url(app()->getLocale().'/edit-organization/'.$dataid ); 
+                   $rateUrl = url(app()->getLocale().'/rate-organization/'.$dataid);
                    $btn = '<a href="'.$editUrl.'" data-toggle="tooltip" data-original-title="Edit" class="edit btn btn-primary btn-sm">Edit</a>';
 
                    //$btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteOrganization">Delete</a>';
@@ -62,18 +62,22 @@ class OrganizationsController extends Controller
         if(!$check){
             App::abort(500, 'Error');
         }
-        return Redirect::to("list-organizations")->withSuccess($check->title.' has been created.');
+        
+        return redirect()->route('list-organizations', app()->getLocale())->withSuccess($check->title.' has been created.');
+       // return Redirect::to("list-organizations")->withSuccess($check->title.' has been created.');
     }
 
     /* display edit organization form with data */
 
     public function edit(Request $request, $id)
     {   //dd($id);
-        $decrypted = Crypt::decryptString($id);
+        $decrypted = Crypt::decryptString(request()->segment(3));
         $data['organization'] = Organizations::where('id', $decrypted)->first();
 
+
         if(!$data['organization']){
-            return redirect('/list-organizations');
+            return redirect()->route('list-organizations', app()->getLocale());
+            //return redirect('/list-organizations');
          }
         return view('edit-organization', $data);
     }
@@ -83,23 +87,25 @@ class OrganizationsController extends Controller
     public function update(Request $request)
     {
         $data = request()->validate([
-        'title' => 'required',
+        'title' => 'sometimes|required',
         'description' => 'required',
         ]);
        
         if(!$request->id){
-           return redirect('/list');
+           return redirect()->route('list-organizations', app()->getLocale());
+           //return redirect('/list');
         }
 
         $check = Organizations::where('id', $request->id)->update($data);
-        return Redirect::to("list")->withSuccess('Great! Organization has been updated');
+        return redirect()->route('list-organizations', app()->getLocale())->withSuccess('Organizatin details have been updated');
+        //return Redirect::to("list")->withSuccess('Great! Organization has been updated');
     }  
 
     /* delete Organization from mysql database */
 
     public function delete(Request $request, $id)
     {
-        $check = Organizations::where('id', $id)->delete();
+        //$check = Organizations::where('id', $id)->delete();
  
         return Response::json($check);
     }
@@ -107,14 +113,15 @@ class OrganizationsController extends Controller
     /* rate organization */
 
     public function set_org_rating(Request $request, $id)
-    {   
+    {  // dd(request()->segment(3));
         
-        $decrypted = Crypt::decryptString($id);
-        $data['tokenid'] = $id;
+        $decrypted = Crypt::decryptString(request()->segment(3));
+        $data['tokenid'] = request()->segment(3);
         $data['organization'] = Organizations::where('id', $decrypted)->first();
         
         if(!$data['organization']){
-           return redirect('/list-organizations');
+           return redirect()->route('list-organizations', app()->getLocale()); 
+           //return redirect('/list-organizations');
         }
         
         return view('rate_org', $data);
@@ -201,8 +208,11 @@ class OrganizationsController extends Controller
          $review->confirm_truthfullness = $request->correct_information;
          $review->status = 0;
          $review->rating = 0;
+
+         //dd(request()->tokenid);
+        
+         //$decrypted = Crypt::decryptString();
          $review->organization_id = (int) Crypt::decryptString($request->tokenid);
-        //dd($review->organization_id);
          $check = $review->save();
 
          $org = Organizations::find($review->organization_id);
@@ -211,11 +221,13 @@ class OrganizationsController extends Controller
 
          if($check){
             $request->session()->flash('sucessrating', 'Success!!! Rating of '.$org_name.' submitted. Thank you for being an active citizen.');
-            return redirect()->route('list-organizations');
+            //return redirect()->route('list-organizations');
+            return redirect()->route('list-organizations', app()->getLocale());
         }else{
             $request->session()->flash('failrating','Failed!!! Please retry...');
             $responseData['id'] = $request->tokenid;
-            return redirect()->route('rate-organization', $responseData);
+            //return redirect()->route('rate-organization', $responseData);
+            return redirect()->route('list-organizations/'.$responseData['id'], app()->getLocale());
            // return Redirect::to("rate-organization")->with('org_id' -> $request->tokenid)->withFail('Organization review submission failed, please retry.');
          }
          //{{ session()->get( 'org_id' ) }}

@@ -24,7 +24,7 @@
             <!-- Content Input -->
             <div class='form-group'>
                 <label for='inputcontent' class='col-sm-2 control-label'> {{ __('Content') }}</label>
-                <textarea wire:model.lazy='content' class="form-control @error('content') is-invalid @enderror"></textarea>
+                <textarea id="editor" wire:model.lazy='content' rows="10"  class="form-control @error('content') is-invalid @enderror"></textarea>
                 @error('content') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
             
@@ -46,3 +46,14 @@
         </div>
     </form>
 </div>
+
+<script>
+ClassicEditor
+	.create( document.querySelector( '#editor' ) )
+	.then( editor => {
+		console.log( 'Editor was initialized', editor );
+	} )
+	.catch( err => {
+		console.error( err.stack );
+	} );
+</script>

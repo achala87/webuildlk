@@ -58,7 +58,13 @@
 
             <!-- language selector -->
             <li class="nav-item dropdown ml-4 text-sm">
-            <a class="nav-link dropdown-toggle text-gray-700" data-toggle="dropdown" href="#" role="button" style="padding-top:2px;" aria-haspopup="true" aria-expanded="false">Language</a>
+            <a class="nav-link dropdown-toggle text-gray-700" data-toggle="dropdown" href="#" role="button" style="padding-top:2px;" aria-haspopup="true" aria-expanded="false">
+                @if (app()->getLocale() == 'en')
+                    English
+                @else
+                    Sinhala
+                @endif 
+            </a>
             <div class="dropdown-menu">
                     <a href="{{ route(Route::currentRouteName(), 'en') }}" class="dropdown-item text-sm text-gray-700">English</a>
 

@@ -18,7 +18,7 @@
                
             <div class="container mt-4">
    
-    <form id="add-todo" method="post" action="{{ url('update-organization') }}"> 
+    <form id="add-todo" method="post" action="{{ route('update-organization', app()->getLocale() ) }}"> 
       @csrf
       
       <input type="hidden" name="id" class="form-control" value="{{ $organization->id }}" id="formGroupExampleInput">

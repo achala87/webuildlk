@@ -20,7 +20,7 @@
    <!-- Validation Errors -->
    <x-auth-validation-errors class="mb-4" :errors="$errors" />
    
-    <form id="add-todo" method="post" action="{{ url('post-organization') }}"> 
+    <form id="add-todo" method="post" action="{{ route('post-organization', app()->getLocale()) }}"> 
       @csrf
 
       <div class="form-group">

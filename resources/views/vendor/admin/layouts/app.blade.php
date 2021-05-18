@@ -22,6 +22,12 @@
         @style("/assets/admin/css/rtl.css")
         @style("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v27.2.1/dist/font-face.css")
     @endif
+
+    <style>
+.ck-editor__editable {
+    min-height: 400px;
+}
+    </style>
 </head>
 
 <body>

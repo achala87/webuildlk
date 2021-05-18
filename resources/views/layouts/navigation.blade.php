@@ -29,7 +29,13 @@
         
            <!-- language selector -->
            <li class="nav-item dropdown ml-4 text-sm">
-            <a class="nav-link dropdown-toggle text-gray-700" data-toggle="dropdown" href="#" role="button" style="padding-top:2px;" aria-haspopup="true" aria-expanded="false">Language</a>
+           <a class="nav-link dropdown-toggle text-gray-700" data-toggle="dropdown" href="#" role="button" style="padding-top:2px;" aria-haspopup="true" aria-expanded="false">
+                @if (app()->getLocale() == 'en')
+                    English
+                @else
+                    Sinhala
+                @endif 
+            </a>
             <div class="dropdown-menu">
                     <a href="{{ route(Route::currentRouteName(), 'en') }}" class="dropdown-item text-sm text-gray-700">English</a>
 
@@ -59,12 +65,12 @@
         <div style="margin-right:5%;" class="hidden sm:flex sm:items-center sm:ml-6">
 
     <div class="dropdown">
-        <button class="btn dropdown-toggle" style="font-size: small;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn dropdown-toggle text-sm" style="font-size: small;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ Auth::user()->name }}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">{{ Auth::user()->email }}</a>
-            <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}" onclick="event.preventDefault();
+            <a class="dropdown-item text-sm" href="#">{{ Auth::user()->email }}</a>
+            <a class="dropdown-item text-sm" href="{{ route('logout', app()->getLocale()) }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
             </a>
