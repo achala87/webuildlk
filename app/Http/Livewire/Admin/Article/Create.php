@@ -11,12 +11,17 @@ class Create extends Component
     use WithFileUploads;
 
     public $title;
-    public $content;
-    public $image;
+    public $acontent;
+    public $image = 0;  
+    public $seo_description;
+    public $seo_keywords;
+    public $slug;
+    public $language;
+    public $category;
     
     protected $rules = [
         'title' => 'required',
-        'content' => 'required|min:30',        
+        'acontent' => 'required|min:30',       
     ];
 
     public function updated($input)
@@ -26,21 +31,30 @@ class Create extends Component
 
     public function create()
     {
+        //dd($this->image);
         $this->validate();
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Article') ])]);
         
         if($this->getPropertyValue('image') and is_object($this->image)) {
+            
             $this->image = $this->getPropertyValue('image')->store('image/articles');
+           
         }
 
-        Article::create([
+        $response =  Article::create([
             'title' => $this->title,
-            'content' => $this->content,
+            'acontent' => $this->acontent,
             'image' => $this->image,
+            'category' => $this->category,
+            'slug' => $this->slug,
+            'language' => $this->language,
+            'seo_description' => $this->seo_description,
+            'seo_keywords' => $this->slug,
             'user_id' => auth()->id(),
         ]);
-
+        
+       
         $this->reset();
     }
 

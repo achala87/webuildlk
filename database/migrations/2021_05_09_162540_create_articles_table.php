@@ -17,8 +17,8 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->text('content')->default('0');
-            $table->string('header_photo')->default('0');
+            $table->text('acontent')->default('0');
+            $table->string('image')->default('0');
             $table->integer('user_id');
             $table->softDeletesTz('deleted_at', 0);
         });

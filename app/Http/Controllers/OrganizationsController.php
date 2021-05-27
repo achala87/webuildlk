@@ -24,12 +24,18 @@ class OrganizationsController extends Controller
             ->addColumn('action', function($data){
                    
                    $dataid = Crypt::encryptString($data->id);
+                   $viewUrl = url(app()->getLocale().'/view-organization-rating-review/'.urlencode(htmlspecialchars($data->title)) ); 
                    $editUrl = url(app()->getLocale().'/edit-organization/'.$dataid ); 
                    $rateUrl = url(app()->getLocale().'/rate-organization/'.$dataid);
-                   $btn = '<a href="'.$editUrl.'" data-toggle="tooltip" data-original-title="Edit" class="edit btn btn-primary btn-sm">Edit</a>';
+                   
+                   $btn = ' <a style="display:block; width:50px; float:left;" class="ml-4" href="'.$rateUrl.'"data-id="'.$data->id.'" data-original-title="Rate" class="rateOrganization"><i class="fas fa-star-half-alt"></i>
+                   <br>Rate</a>';
 
-                   //$btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteOrganization">Delete</a>';
-                   $btn = $btn.' <a href="'.$rateUrl.'" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Rate" class="btn btn-info btn-sm rateOrganization">Rate</a>';
+                   $btn = $btn.'<a class="ml-4" style="display:block; width:50px; float:left;" href="'.$viewUrl.'"data-original-title="Edit" class="edit"><i class="far fa-eye"></i>
+                                                <br>View</a>';
+
+                   $btn = $btn.'<a class="ml-4" style="display:block; width:50px; float:left;" href="'.$editUrl.'"data-original-title="View" class="view"><i class="far fa-edit"></i>
+                                                <br>Edit</a>';
 
 
                     return $btn;
@@ -65,6 +71,21 @@ class OrganizationsController extends Controller
         
         return redirect()->route('list-organizations', app()->getLocale())->withSuccess($check->title.' has been created.');
        // return Redirect::to("list-organizations")->withSuccess($check->title.' has been created.');
+    }
+
+    /*view organization details and reviews */
+
+    public function view(Request $request, $ti)
+    { 
+        $title = urldecode(request()->segment(3));
+       
+        $data['organization'] = Organizations::where('title', $title)->first();
+        // dd($data);
+        if(!$data['organization']){
+            return redirect()->route('list-organizations', app()->getLocale());
+            //return redirect('/list-organizations');
+         }
+        return view('view-organization', $data);
     }
 
     /* display edit organization form with data */

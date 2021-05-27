@@ -90,7 +90,7 @@
         </nav></div>
 
         <div class="container mt-3">
-            <h1>A citizen effort for a corruption free nation, working for the betterment of all citizens and other life who make Sri Lanka an unique place we call home</h1>
+        <h1>{{__('home_page_title')}} </h1>
         </div>
 
 

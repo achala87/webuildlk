@@ -14,7 +14,8 @@ class Article extends Model implements Auditable
     use \OwenIt\Auditing\Auditable;
 
     protected $fillable = [
-        'title', 'content', 'user_id', 'created_at',
+        'title', 'acontent', 'user_id', 'image', 'created_at', 'seo_description',
+        'category', 'slug', 'language', 'seo_keywords',
     ];
 
     /**

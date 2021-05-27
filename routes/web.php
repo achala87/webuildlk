@@ -39,8 +39,6 @@ Route::group(['prefix' => '{language}'], function(){
         return view('dashboard');
     })->middleware(['auth'])->name('dashboard');
 
-
-
     Route::get('list-organizations', [OrganizationsController::class, 'index'])->name('list-organizations');
 
     Route::get('rate-organization/{id?}', [OrganizationsController::class, 'set_org_rating'])->name('rate-organization')->middleware('auth');
@@ -53,6 +51,8 @@ Route::group(['prefix' => '{language}'], function(){
     Route::get('edit-organization/{id?}', [OrganizationsController::class, 'edit'])->name('edit-organization')->middleware('auth');
     Route::post('update-organization', [OrganizationsController::class, 'update'])->name('update-organization')->middleware('auth');
 
+    Route::get('view-organization-rating-review/{title?}', [OrganizationsController::class, 'view'])->name('view-organization-rating-review');
+    
     Route::get('delete-organization/{id?}', [OrganizationsController::class, 'delete']);
 
     Route::post('upload-evidence', [OrganizationsController::class, 'store_evidence']);

@@ -6,7 +6,7 @@
 
 <url>
 
-<loc>https://buildlk.com/</loc>
+<loc>https://buildlk.com/en/home</loc>
 
 <lastmod>2021-05-09T00:37:08+00:00</lastmod>
 
@@ -14,10 +14,9 @@
 
 </url>
 
-
 <url>
 
-<loc>https://buildlk.com/list-organizations</loc>
+<loc>https://buildlk.com/si/home</loc>
 
 <lastmod>2021-05-09T00:37:08+00:00</lastmod>
 
@@ -28,7 +27,18 @@
 
 <url>
 
-<loc>https://buildlk.com/anti-corruption</loc>
+<loc>https://buildlk.com/en/list-organizations</loc>
+
+<lastmod>2021-05-19T00:37:08+00:00</lastmod>
+
+<priority>0.80</priority>
+
+</url>
+
+
+<url>
+
+<loc>https://buildlk.com/en/anti-corruption</loc>
 
 <lastmod>2021-05-09T00:37:08+00:00</lastmod>
 
@@ -39,7 +49,7 @@
 
 <url>
 
-<loc>https://buildlk.com/value-added-economy</loc>
+<loc>https://buildlk.com/en/value-added-economy</loc>
 
 <lastmod>2021-05-09T00:37:08+00:00</lastmod>
 
@@ -50,7 +60,7 @@
 
 <url>
 
-<loc>https://buildlk.com/centralized-cities-environment</loc>
+<loc>https://buildlk.com/en/centralized-cities-environment</loc>
 
 <lastmod>2021-05-09T00:37:08+00:00</lastmod>
 
@@ -61,7 +71,7 @@
 
 <url>
 
-<loc>https://buildlk.com/login</loc>
+<loc>https://buildlk.com/en/login</loc>
 
 <lastmod>2021-05-09T00:37:08+00:00</lastmod>
 
@@ -72,7 +82,7 @@
 
 <url>
 
-<loc>https://buildlk.com/register</loc>
+<loc>https://buildlk.com/en/register</loc>
 
 <lastmod>2021-05-09T00:37:08+00:00</lastmod>
 
@@ -83,7 +93,7 @@
 
 <url>
 
-<loc>https://buildlk.com/forgot-password</loc>
+<loc>https://buildlk.com/en/forgot-password</loc>
 
 <lastmod>2021-05-09T00:37:08+00:00</lastmod>
 

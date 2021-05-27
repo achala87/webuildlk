@@ -11,13 +11,13 @@
     {{--Scripts which must load before full loading--}}
     @style('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')
     @script('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-    @script('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    @script('https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js')
     @script('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.2/dist/alpine.min.js')
-    @script("/assets/admin/js/ckeditor.min.js")
 
     {{--Styles--}}
     @livewireStyles
     @style("/assets/admin/css/style.min.css")
+    @style("/assets/admin/css/bootstrap-tagsinput.css")
     @if(config('easy_panel.rtl_mode'))
         @style("/assets/admin/css/rtl.css")
         @style("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v27.2.1/dist/font-face.css")
@@ -26,6 +26,20 @@
     <style>
 .ck-editor__editable {
     min-height: 400px;
+}
+
+.bootstrap-tagsinput .tag {
+  background: #2a9de8;
+  border: 1px solid black;
+  padding: 0 6px;
+  margin-right: 2px;
+  color: white;
+  border-radius: 4px;
+}
+
+.bootstrap-tagsinput .input {
+ display:block;
+ width: 350px;
 }
     </style>
 </head>
@@ -175,6 +189,9 @@
 @script("/assets/admin/js/feather.min.js")
 @script("/assets/admin/js/sidebarmenu.min.js")
 @script("/assets/admin/js/custom.min.js")
+@script("/assets/admin/js/bootstrap-tagsinput.js")
+@script("/assets/admin/js/ckeditor.min.js")
+
 
 @livewireScripts
 <script>
@@ -196,6 +213,25 @@
             body.removeChild(child);
         }, 3000);
     });
+
+    // let editor;
+
+    // ClassicEditor
+    //     .create( document.querySelector( '#acontent' ) )
+    //     .then( newEditor => {
+    //         editor = newEditor;
+    //     } )
+    //     .catch( error => {
+    //         console.error( error );
+    //     } 
+    // );
+
+    // document.querySelector( '#submit' ).addEventListener( 'click', () => {
+    //     const editorData = editor.getData();
+    //     document.getElementById("acontent").value = editorData;
+
+    // } );
+
 </script>
 
 </body>

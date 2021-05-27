@@ -1,3 +1,5 @@
+
+
 <div class="card">
     <div class="card-header p-0">
         <h3 class="card-title">{{ __('CreateTitle', ['name' => __('Article') ]) }}</h3>
@@ -16,18 +18,20 @@
             
             <!-- Title Input -->
             <div class='form-group'>
-                <label for='inputtitle' class='col-sm-2 control-label'> {{ __('Title') }}</label>
-                <input type='text' wire:model.lazy='title' class="form-control @error('title') is-invalid @enderror" id='inputtitle'>
+                <label for='' class='col-sm-2 control-label'> {{ __('Title') }}</label>
+                <input type='text'  wire:model.lazy='title' maxlength="160" class="" onchange="copytitletoslug(this.value)" id='title'>
                 @error('title') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
             
             <!-- Content Input -->
-            <div class='form-group'>
-                <label for='inputcontent' class='col-sm-2 control-label'> {{ __('Content') }}</label>
-                <textarea id="editor" wire:model.lazy='content' rows="10"  class="form-control @error('content') is-invalid @enderror"></textarea>
-                @error('content') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            <div wire:ignore class='form-group'>
+                <label for='inputeditor' class='col-sm-2 control-label'> {{ __('Content') }}</label>
+                <textarea  wire:model.lazy='acontent' id="acontent"  rows="10"  class=""></textarea>
+                @error('acontent') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+>
             </div>
             
+
             <!-- Image Input -->
             <div class='form-group'>
                 <label for='inputimage' class='col-sm-2 control-label'> {{ __('Image') }}</label>
@@ -37,23 +41,89 @@
                 @endif
                 @error('image') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
+
+            <div class='form-group'>
+                <label for='seo_description' maxlength="250" class='col-sm-4 control-label'> {{ __('Search Engine Description') }}</label>
+                <input type='text' id='seo_description' wire:model.lazy='seo_description' class="form-control @error('seo_description') is-invalid @enderror">
+                @error('seo_description') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            </div>
+
+            <div class='form-group'>
+                <label  for='seo_keywords' class='col-sm-4 control-label'> {{ __('Search Engine Keywords') }}</label>
+                <input type='text' wire:model.lazy='seo_keywords'   id="seo_keywords" class="form-control @error('seo_keywords') is-invalid @enderror">
+            </div>
+
+            <div class='form-group'>
+                <label for='category' class='col-sm-4 control-label'> {{ __('Category') }}</label>
+                <input type='text' wire:model.lazy='category' id="category" class="form-control @error('category') is-invalid @enderror">
+            </div>
+
+            <div class='form-group'>
+                <label for='slug' class='col-sm-4 control-label'> {{ __('Article URL') }}</label>
+                <input type='text' onchange="converttoslug(this.value)" wire:model.lazy='slug' name="slug" id='slug'>
+                @error('slug') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            </div>
+
+            <div class='form-group'>
+                <label for='language' class='col-sm-4 control-label'> {{ __('Article Language') }}</label>
+               <select id="language" wire:model.lazy='language' name="language"> 
+                <option value="en">English</option>
+                <option value="si">Sinhala</option>
+                <option value="tm">Tamil</option>
+               </select>
+            </div>
             
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-info ml-4">{{ __('Create') }}</button>
+            <button type="submit" id="submit" class="btn btn-info ml-4">{{ __('Create') }}</button>
             <a href="@route(getRouteName().'.article.read')" class="btn btn-default float-left">{{ __('Cancel') }}</a>
         </div>
     </form>
 </div>
 
 <script>
-ClassicEditor
-	.create( document.querySelector( '#editor' ) )
-	.then( editor => {
-		console.log( 'Editor was initialized', editor );
-	} )
-	.catch( err => {
-		console.error( err.stack );
-	} );
+
+
+
+    function copytitletoslug(title){
+        //alert(title);
+        document.getElementById("slug").value = slugify(title);
+    }
+
+    function converttoslug(title){
+        //alert('2');
+        old = document.getElementById("slug").value;
+        document.getElementById("slug").value = slugify(old);
+        //alert('3');
+    }
+
+    // Slugify a string
+function slugify(str)
+{
+    str = str.replace(/^\s+|\s+$/g, '');
+
+    // Make the string lowercase
+    str = str.toLowerCase();
+
+    // Remove accents, swap ñ for n, etc
+    var from = "ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆÍÌÎÏŇÑÓÖÒÔÕØŘŔŠŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇíìîïňñóöòôõøðřŕšťúůüùûýÿžþÞĐđßÆa·/_,:;";
+    var to   = "AAAAAACCCDEEEEEEEEIIIINNOOOOOORRSTUUUUUYYZaaaaaacccdeeeeeeeeiiiinnooooooorrstuuuuuyyzbBDdBAa------";
+    for (var i=0, l=from.length ; i<l ; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+    }
+
+    // Remove invalid chars
+    str = str.replace(/[^a-z0-9 -]/g, '') 
+    // Collapse whitespace and replace by -
+    .replace(/\s+/g, '-') 
+    // Collapse dashes
+    .replace(/-+/g, '-'); 
+
+    return str;
+}
+
+
 </script>
+
+

@@ -57,9 +57,9 @@
            columns: [
                   //   { data: 'id', name: 'id' },
                     { data: 'title', name: 'title' },
-                    { data: 'district', name: 'district' },
+                    { data: 'district', name: 'district', width: "10%" },
                   //   { data: 'avg_rating', name: 'avg_rating' },
-                    { data: 'action', name: 'action' }
+                    { data: 'action', name: 'action', width: "25%" }
                  ]
        });
      });

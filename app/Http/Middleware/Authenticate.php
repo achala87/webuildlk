@@ -17,7 +17,7 @@ class Authenticate extends Middleware
     {   //$route = Route::current();
         
         if (! $request->expectsJson()) {
-            return route('login');
+            return route('login', app()->getLocale());
         }
     }
 }
