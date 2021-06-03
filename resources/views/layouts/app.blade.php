@@ -155,10 +155,18 @@ ol.q {list-style-type: lower-roman; margin-left:1.5rem; font-size:0.75rem; line-
                 <div class="max-w-7xl mx-auto py-2 px-6 sm:px-8 lg:px-28">
                   {{ $header }}
                 </div>
+
+                
             </header> @endisset
 
             <!-- Page Content -->
             <main>
+            @if(session('success'))
+                        <div style="width: 80%; margin:0 auto;" class="alert alert-success">
+                            {!! session('success') !!}
+                        </div>
+            @endif
+
             @isset($slot)
                 {{ $slot }}  @endisset
             </main>

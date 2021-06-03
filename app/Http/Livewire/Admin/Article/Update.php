@@ -13,19 +13,29 @@ class Update extends Component
     public $article;
 
     public $title;
-    public $content;
+    public $acontent;
+    public $seo_description;
+    public $seo_keywords;
+    public $slug;
+    public $category;
+    public $language;
     public $image;
     
     protected $rules = [
         'title' => 'required',
-        'content' => 'required|min:30',        
+        'acontent' => 'required|min:30',        
     ];
 
     public function mount(Article $article){
         $this->article = $article;
         $this->title = $this->article->title;
-        $this->content = $this->article->content;
-        $this->image = $this->article->image;        
+        $this->acontent = $this->article->acontent;
+        $this->seo_description = $this->article->seo_description;
+        $this->seo_keywords = $this->article->seo_keywords;
+        $this->slug = $this->article->slug;
+        $this->image = $this->article->image;   
+        $this->language = $this->article->language;   
+        $this->category =  json_decode($this->article->category);     
     }
 
     public function updated($input)
@@ -40,13 +50,25 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Article') ]) ]);
         
         if($this->getPropertyValue('image') and is_object($this->image)) {
-            $this->image = $this->getPropertyValue('image')->store('image/articles');
+            $this->image = $this->getPropertyValue('image')->store('image/articles', 'public');
+        }
+        
+        //dd($this->category);
+        if(!is_array($this->category)){
+            $splitCat = explode(",", $this->category);
+        }else{
+            $splitCat = $this->category;
         }
 
         $this->article->update([
             'title' => $this->title,
-            'content' => $this->content,
+            'acontent' => $this->acontent,
             'image' => $this->image,
+            'category' => json_encode($splitCat),
+            'slug' => $this->slug,
+            'language' => $this->language,
+            'seo_description' => $this->seo_description,
+            'seo_keywords' => $this->seo_keywords,
             'user_id' => auth()->id(),
         ]);
     }
@@ -55,6 +77,6 @@ class Update extends Component
     {
         return view('livewire.admin.article.update', [
             'article' => $this->article
-        ])->layout('admin::layouts.app', ['title' => __('UpdateTitle', ['name' => __('Article') ])]);
+        ])->layout('admin::layouts.app', ['title' => __('UpdateTitle', ['acontent' => __('AContent') ])]);
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\AntiCorruptionController;
 use App\Http\Controllers\EconomyController;
 use App\Http\Controllers\EnvironmentController;
 use App\Http\Controllers\AuditController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,9 @@ Route::group(['prefix' => '{language}'], function(){
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth'])->name('dashboard');
+
+    Route::get('articles', [ArticleController::class, 'index'])->name('articles');
+    Route::get('read-article/{slug?}', [ArticleController::class, 'read_article'])->name('read-article');
 
     Route::get('list-organizations', [OrganizationsController::class, 'index'])->name('list-organizations');
 

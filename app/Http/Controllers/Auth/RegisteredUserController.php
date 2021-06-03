@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Redirect;
 
 class RegisteredUserController extends Controller
 {
@@ -19,6 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
+        Redirect::setIntendedUrl(url()->previous());
         return view('auth.register');
     }
 
@@ -47,7 +49,7 @@ class RegisteredUserController extends Controller
         ]));
 
         event(new Registered($user));
-
-        return redirect(RouteServiceProvider::HOME);
+        
+        return redirect()->intended(RouteServiceProvider::HOME)->with('success','welcome '. $user->name . ' you are registered');;
     }
 }

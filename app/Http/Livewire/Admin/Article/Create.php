@@ -38,19 +38,21 @@ class Create extends Component
         
         if($this->getPropertyValue('image') and is_object($this->image)) {
             
-            $this->image = $this->getPropertyValue('image')->store('image/articles');
+            $this->image = $this->getPropertyValue('image')->store('image/articles', 'public');
            
         }
+
+        $splitCat = explode(",", $this->category);
 
         $response =  Article::create([
             'title' => $this->title,
             'acontent' => $this->acontent,
             'image' => $this->image,
-            'category' => $this->category,
+            'category' => json_encode($splitCat),
             'slug' => $this->slug,
             'language' => $this->language,
             'seo_description' => $this->seo_description,
-            'seo_keywords' => $this->slug,
+            'seo_keywords' => $this->seo_keywords,
             'user_id' => auth()->id(),
         ]);
         

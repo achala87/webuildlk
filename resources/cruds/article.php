@@ -14,13 +14,13 @@ return [
     // Validation in update and create actions
     'validation' => [
         'title' => 'required',
-        'content' => 'required|min:30',
+        'acontent' => 'required|min:30',
     ],
 
     // Write every fields in your db which you want to show
     'fields' => [
         'title' => 'text',
-        'content' => 'textarea',
+        'acontent' => 'textarea',
         'image' => 'file'
     ],
 

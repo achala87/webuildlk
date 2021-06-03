@@ -17,7 +17,7 @@
     {{--Styles--}}
     @livewireStyles
     @style("/assets/admin/css/style.min.css")
-    @style("/assets/admin/css/bootstrap-tagsinput.css")
+
     @if(config('easy_panel.rtl_mode'))
         @style("/assets/admin/css/rtl.css")
         @style("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v27.2.1/dist/font-face.css")
@@ -28,19 +28,6 @@
     min-height: 400px;
 }
 
-.bootstrap-tagsinput .tag {
-  background: #2a9de8;
-  border: 1px solid black;
-  padding: 0 6px;
-  margin-right: 2px;
-  color: white;
-  border-radius: 4px;
-}
-
-.bootstrap-tagsinput .input {
- display:block;
- width: 350px;
-}
     </style>
 </head>
 
@@ -189,7 +176,6 @@
 @script("/assets/admin/js/feather.min.js")
 @script("/assets/admin/js/sidebarmenu.min.js")
 @script("/assets/admin/js/custom.min.js")
-@script("/assets/admin/js/bootstrap-tagsinput.js")
 @script("/assets/admin/js/ckeditor.min.js")
 
 

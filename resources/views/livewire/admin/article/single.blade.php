@@ -1,6 +1,7 @@
 <tr x-data="{ modalIsOpen : false }">
-    <td> {{ $article->title }} </td>
-    <td><a target="_blank" href="{{ asset($article->image) }}"><img class="rounded-circle img-fluid" width="50" height="50" src="{{ asset($article->image) }}" alt="image"></a></td>
+
+    <td> <a target="_blank" href="/read-article/{{ $article->slug }}">{{ $article->title }} <a> </td>
+    <td><a target="_blank" href="/storage/{{$article->image}}"><img class="rounded-circle img-fluid" width="50" height="50" src="/storage/{{$article->image}}" alt="image"></a></td>
     <td> {{ $article->created_at }} </td>
     <td> {{ $article->user->name }} </td>    
     @if(config('easy_panel.crud.article.delete') or config('easy_panel.crud.article.update'))

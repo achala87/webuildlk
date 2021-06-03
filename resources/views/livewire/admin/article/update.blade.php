@@ -14,7 +14,6 @@
 
         <div class="card-body">
 
-            
             <!-- Title Input -->
             <div class='form-group'>
                 <label for='inputtitle' class='col-sm-2 control-label'> {{ __('Title') }}</label>
@@ -26,9 +25,9 @@
             <!-- Content Input -->
             <div wire:ignore class='form-group'>
                 <label for='inputeditor' class='col-sm-2 control-label'> {{ __('Content') }}</label>
-                <textarea  wire:model.lazy='acontent' id="acontent"  rows="10"  class=""></textarea>
+                <textarea  wire:model.lazy='acontent' id="inputacontent"  class="form-control @error('acontent') is-invalid @enderror"  rows="10"  class=""></textarea>
                 @error('acontent') <div class='invalid-feedback'>{{ $message }}</div> @enderror
->
+
             </div>
             
 
@@ -38,6 +37,9 @@
                 <input type='file' wire:model='image' class="form-control-file @error('image') is-invalid @enderror" id='inputimage'>
                 @if($image and !$errors->has('image') and $image instanceof \Livewire\TemporaryUploadedFile and (in_array( $image->guessExtension(), ['png', 'jpg', 'gif', 'jpeg'])))
                     <a href="{{ $image->temporaryUrl() }}"><img width="200" height="200" class="img-fluid shadow" src="{{ $image->temporaryUrl() }}" alt=""></a>
+                @endif
+                @if($image)
+                <a href=""><img width="200" height="200" class="img-fluid shadow" src="/storage/{{ $image }}" alt=""></a>
                 @endif
                 @error('image') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
@@ -64,6 +66,7 @@
                 @error('slug') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
 
+            
             <div class='form-group'>
                 <label for='language' class='col-sm-4 control-label'> {{ __('Article Language') }}</label>
                <select id="language" wire:model.lazy='language' name="language"> 
@@ -71,6 +74,7 @@
                 <option value="si">Sinhala</option>
                 <option value="tm">Tamil</option>
                </select>
+               @error('language') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
             
 

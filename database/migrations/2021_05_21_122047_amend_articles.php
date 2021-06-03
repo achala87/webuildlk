@@ -14,11 +14,12 @@ class AmendArticles extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->string('category')->nullable();
+            $table->json('category')->nullable();
             $table->string('slug')->nullable();
             $table->string('language')->nullable();
             $table->text('seo_description')->nullable();
             $table->string('seo_keywords')->nullable();
+            $table->tinyInteger('featured')->default(0);
         });
     }
 

@@ -86,12 +86,44 @@
                     @endauth
             @endif
             </ul>
+
+            <!-- Settings Dropdown -->
+        @if (Auth::check()) 
+        <div class="sm:flex sm:items-center sm:ml-6 justify-content-end">
+
+        <div class="dropdown">
+            <button class="btn dropdown-toggle text-sm" style="font-size: small;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ Auth::user()->name }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item text-sm" href="#">{{ Auth::user()->email }}</a>
+                <a class="dropdown-item text-sm" href="{{ route('logout', app()->getLocale()) }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+            </div>
         </div>
+        </div>
+        @endif
+            
+        </div>
+
+        
         </nav></div>
 
         <div class="container mt-3">
         <h1>{{__('home_page_title')}} </h1>
         </div>
+
+        @if(session('success'))
+                        <div style="width: 80%; margin:0 auto;" class="alert alert-success">
+                            {!! session('success') !!}
+                        </div>
+         @endif
 
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
