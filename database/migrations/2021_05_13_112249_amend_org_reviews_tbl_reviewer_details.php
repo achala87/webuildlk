@@ -15,9 +15,9 @@ class AmendOrgReviewsTblReviewerDetails extends Migration
     {
         Schema::table('organization_reviews', function (Blueprint $table) {
             $table->integer('reviewer_id')->default('0');
-            $table->json('remarks')->default('null'); //userid, remark, datetime, flag [normal/alert, on/off], fileuploads
+            $table->json('remarks'); //userid, remark, datetime, flag [normal/alert, on/off], fileuploads
             $table->tinyInteger('response_status')->default('0');
-            $table->json('response_update')->default('null'); //userid, response_msg, staff_id, datetime, flag [normal/alert, on/off], fileuploads
+            $table->json('response_update'); //userid, response_msg, staff_id, datetime, flag [normal/alert, on/off], fileuploads
         });
     }
 

@@ -13,7 +13,7 @@ class AmendUsersTbl extends Migration
      */
     public function up()
     {
-        Schema::table('Users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->boolean('status')->default(1);
             $table->string('contact_no')->nullable();
             $table->string('address')->nullable();
@@ -27,7 +27,7 @@ class AmendUsersTbl extends Migration
      */
     public function down()
     {
-        Schema::table('Users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

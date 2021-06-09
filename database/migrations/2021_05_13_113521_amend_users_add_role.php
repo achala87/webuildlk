@@ -14,7 +14,7 @@ class AmendUsersAddRole extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('user_role')->default('0');   //0 - user, 1 - reviewer
+            $table->integer('user_role')->default(0);   //0 - user, 1 - reviewer
         });
     }
 
