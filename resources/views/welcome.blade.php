@@ -116,7 +116,7 @@
         </nav></div>
 
         <div class="container mt-3">
-        <h1>{{__('home_page_title')}} </h1>
+        <h1>{{__('home_page_title')}}</h1>
         </div>
 
         @if(session('success'))
