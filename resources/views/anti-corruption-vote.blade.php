@@ -1,4 +1,7 @@
 @section('title', 'Vote for corruption free politicians')
+@section('page_description', 'Vote for corruption free politicians in Sri Lanka, reject corruption and sand together. As Sri Lankan citizens we must force corruption out of parilament even if it means rejecting the traditional political parties and politicians. Pledge with us to do your duty to stand for justice and meritocracy.')
+@section('page_keywords', 'Vote for corruption free politicians, Fight corruption in Sri Lanka, Citizens united for a corruption free Sri Lanka')
+@section('page_author', 'BuildLK')
 <x-app-layout>
 
     <div class="container mt-3"><i>BuildLk is a citizen initiative to sustainably develop a corruption free Sri Lanka</i></div>

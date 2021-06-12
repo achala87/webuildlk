@@ -30,7 +30,7 @@ class ArticleSeeder extends Seeder
             ),
             array(
               'title' => 'Featured article seeded',
-              'category' => json_encode(array('testcat3', 'testcat4')),
+              'category' => json_encode(array('testcat3', 'testcat4', 'featured')),
               'acontent' => 'this is a sample content',
               'slug' => 'seeded-article2',
               'seo_keywords' => 'another label, another random label',
