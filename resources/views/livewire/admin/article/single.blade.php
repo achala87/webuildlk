@@ -1,6 +1,6 @@
 <tr x-data="{ modalIsOpen : false }">
 
-    <td> <a target="_blank" href="/read-article/{{ $article->slug }}">{{ $article->title }} <a> </td>
+    <td> <a target="_blank" href="/en/read-article/{{ $article->slug }}">{{ $article->title }} <a> </td>
     <td><a target="_blank" href="/storage/{{$article->image}}"><img class="rounded-circle img-fluid" width="50" height="50" src="/storage/{{$article->image}}" alt="image"></a></td>
     <td> {{ $article->created_at }} </td>
     <td> {{ $article->user->name }} </td>    

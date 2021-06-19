@@ -13,6 +13,8 @@ class User extends Authenticatable implements Auditable
     use HasFactory, Notifiable;
     use \OwenIt\Auditing\Auditable;
 
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
