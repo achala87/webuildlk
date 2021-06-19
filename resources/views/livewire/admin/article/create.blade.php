@@ -26,9 +26,9 @@
             <!-- Content Input -->
             <div wire:ignore class='form-group'>
                 <label for='inputeditor' class='col-sm-2 control-label'> {{ __('Content') }}</label>
-                <textarea  wire:model.lazy='acontent' id="acontent"  rows="10"  class=""></textarea>
-                @error('acontent') <div class='invalid-feedback'>{{ $message }}</div> @enderror
->
+                <!-- <textarea  wire:model.lazy='acontent' id="acontent"  rows="10"  class=""></textarea> -->
+                <textarea wire:model.lazy='acontent' wire:key="ckEditor" class="form-control required" wire:model.debounce.9999999ms="acontent" name="acontent" id="acontent"></textarea>
+                @error('acontent') <div class='invalid-feedback'>{{ $message }}</div> @enderror             
             </div>
             
 
@@ -122,6 +122,18 @@ function slugify(str)
 
     return str;
 }
+
+
+    ClassicEditor
+        .create(document.querySelector('#acontent'))
+        .then(editor => {
+            editor.model.document.on('change:data', () => {
+            @this.set('acontent', editor.getData());
+            })
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
 
 </script>

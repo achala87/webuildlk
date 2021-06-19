@@ -12,7 +12,7 @@
     @style('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')
     @script('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
     @script('https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js')
-    @script('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.2/dist/alpine.min.js')
+    @script("/assets/admin/js/ckeditor.min.js")
 
     {{--Styles--}}
     @livewireStyles
@@ -176,10 +176,9 @@
 @script("/assets/admin/js/feather.min.js")
 @script("/assets/admin/js/sidebarmenu.min.js")
 @script("/assets/admin/js/custom.min.js")
-@script("/assets/admin/js/ckeditor.min.js")
-
 
 @livewireScripts
+@script('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.2/dist/alpine.min.js')
 <script>
 
     window.addEventListener('show-message', function (event) {
