@@ -92,12 +92,6 @@
 <script>
 
 
-
-    function copytitletoslug(title){
-        //alert(title);
-        document.getElementById("slug").value = slugify(title);
-    }
-
     function converttoslug(title){
         //alert('2');
         old = document.getElementById("slug").value;

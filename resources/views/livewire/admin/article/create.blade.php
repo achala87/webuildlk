@@ -19,20 +19,19 @@
             <!-- Title Input -->
             <div class='form-group'>
                 <label for='' class='col-sm-2 control-label'> {{ __('Title') }}</label>
-                <input type='text'  wire:model.lazy='title' maxlength="160" class="" onchange="copytitletoslug(this.value)" id='title'>
+                <input type='text'  wire:model.lazy='title' maxlength="160" class="" id='title'>
                 @error('title') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
             
             <!-- Content Input -->
             <div wire:ignore class='form-group'>
                 <label for='inputeditor' class='col-sm-2 control-label'> {{ __('Content') }}</label>
-                <!-- <textarea  wire:model.lazy='acontent' id="acontent"  rows="10"  class=""></textarea> -->
-                <textarea wire:model.lazy='acontent' wire:key="ckEditor" class="form-control required" wire:model.debounce.1999999ms="acontent" name="acontent" id="acontent">
-                
+                <textarea  wire:model='acontent' id="acontent" wire:model.debounce.1999999ms="acontent" wire:key="acontent">
+               
                 </textarea>
-                @error('acontent') <div class='invalid-feedback'>{{ $message }}</div> @enderror             
+                @error('acontent') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+
             </div>
-            
 
             <!-- Image Input -->
             <div class='form-group'>
@@ -86,13 +85,6 @@
 
 <script>
 
-
-
-    function copytitletoslug(title){
-        //alert(title);
-        document.getElementById("slug").value = slugify(title);
-    }
-
     function converttoslug(title){
         //alert('2');
         old = document.getElementById("slug").value;
@@ -129,8 +121,8 @@ function slugify(str)
     ClassicEditor
         .create(document.querySelector('#acontent'))
         .then(editor => {
-             // editor.model.document.on('change:data', () => {
-            document.querySelector('#submit').addEventListener('click', () => {  
+             editor.model.document.on('change:data', () => {
+            //document.querySelector('#submit').addEventListener('click', () => {  
                 @this.set('acontent', editor.getData());
             });
         })
