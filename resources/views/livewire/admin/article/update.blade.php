@@ -25,7 +25,9 @@
             <!-- Content Input -->
             <div wire:ignore class='form-group'>
                 <label for='inputeditor' class='col-sm-2 control-label'> {{ __('Content') }}</label>
-                <textarea  wire:model.lazy='acontent' id="inputacontent"  class="form-control @error('acontent') is-invalid @enderror"  rows="10"  class=""></textarea>
+                <textarea  wire:model.lazy='acontent' id="acontent"  class="form-control @error('acontent') is-invalid @enderror">
+                {{ $this->acontent }}
+                </textarea>
                 @error('acontent') <div class='invalid-feedback'>{{ $message }}</div> @enderror
 
             </div>
@@ -81,8 +83,65 @@
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-info ml-4">{{ __('Update') }}</button>
+            <button type="submit" id="submit" class="btn btn-info ml-4">{{ __('Update') }}</button>
             <a href="@route(getRouteName().'.article.read')" class="btn btn-default float-left">{{ __('Cancel') }}</a>
         </div>
     </form>
 </div>
+
+<script>
+
+
+
+    function copytitletoslug(title){
+        //alert(title);
+        document.getElementById("slug").value = slugify(title);
+    }
+
+    function converttoslug(title){
+        //alert('2');
+        old = document.getElementById("slug").value;
+        document.getElementById("slug").value = slugify(old);
+        //alert('3');
+    }
+
+    // Slugify a string
+function slugify(str)
+{
+    str = str.replace(/^\s+|\s+$/g, '');
+
+    // Make the string lowercase
+    str = str.toLowerCase();
+
+    // Remove accents, swap ñ for n, etc
+    var from = "ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆÍÌÎÏŇÑÓÖÒÔÕØŘŔŠŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇíìîïňñóöòôõøðřŕšťúůüùûýÿžþÞĐđßÆa·/_,:;";
+    var to   = "AAAAAACCCDEEEEEEEEIIIINNOOOOOORRSTUUUUUYYZaaaaaacccdeeeeeeeeiiiinnooooooorrstuuuuuyyzbBDdBAa------";
+    for (var i=0, l=from.length ; i<l ; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+    }
+
+    // Remove invalid chars
+    str = str.replace(/[^a-z0-9 -]/g, '') 
+    // Collapse whitespace and replace by -
+    .replace(/\s+/g, '-') 
+    // Collapse dashes
+    .replace(/-+/g, '-'); 
+
+    return str;
+}
+
+
+    ClassicEditor
+        .create(document.querySelector('#acontent'))
+        .then(editor => {
+            // editor.model.document.on('change:data', () => {
+            document.querySelector('#submit').addEventListener('click', () => {   
+                @this.set('acontent', editor.getData());
+            });   
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+
+</script>

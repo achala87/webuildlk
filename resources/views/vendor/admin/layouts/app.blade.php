@@ -12,7 +12,7 @@
     @style('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')
     @script('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
     @script('https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js')
-    @script("/assets/admin/js/ckeditor.min.js")
+    <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
 
     {{--Styles--}}
     @livewireStyles

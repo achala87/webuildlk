@@ -14,13 +14,13 @@
   <article class="blog-post">
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Commercial Support for Jitsi Meet">
-    <meta itemprop="description" content="Installation, Configuration &amp; Customization">
-    <meta itemprop="dateModified" content="May 05, 2018">
+    <meta itemprop="headline" content="{{$article->title}}">
+    <meta itemprop="description" content="{{ $article->seo_description}}">
+    <meta itemprop="dateModified" content="{{$article->modified_at}}">
 
 
     <div id="hero-image" class="hero-image">
-      <img src="/storage/{{$article->image}}"  width="700" height="500" loading="lazy">
+      <img src="/storage/{{$article->image}}"  height="300" loading="lazy">
       <div class="hero-text">
       <h1>{{ $article->title }}</h1>
             <p> Posted: {{ $article->created_at->diffForHumans() }} </p>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="article-body">
-    {{ $article->acontent }}
+    {!! $article->acontent !!}
     </div>
       
     </article>
