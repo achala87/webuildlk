@@ -12,7 +12,7 @@ class Create extends Component
 
     
     public $title;
-    public $acontent = '';
+    public $acontent;
     public $image = 0;  
     public $seo_description;
     public $seo_keywords;
@@ -21,15 +21,9 @@ class Create extends Component
     public $category;
     
     protected $rules = [
-        'title' => 'required',
-        'acontent' => 'required|min:30',       
+        'title' => 'required',    
     ];
 
-    public function mount()
-    {
-        $this->acontent = '';
-        $this->language = 'en';
-    }
 
     public function updated($input)
     {
@@ -62,7 +56,8 @@ class Create extends Component
             'seo_keywords' => $this->seo_keywords,
             'user_id' => auth()->id(),
         ]);
-       
+        
+        $this->emitUp('acontent');
         $this->reset();
     }
 

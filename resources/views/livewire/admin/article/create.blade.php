@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
+    <form class="form-horizontal" wire:submit.prevent="create" autocomplete="off" enctype="multipart/form-data">
 
         <div class="card-body">
             
@@ -25,11 +25,10 @@
             
             <!-- Content Input -->
             <div wire:ignore class='form-group'>
-                <label for='inputeditor' class='col-sm-2 control-label'> {{ __('Content') }}</label>
-                <textarea  wire:model='acontent' id="acontent" wire:model.debounce.1999999ms="acontent" wire:key="acontent">
-               
+                <label  wire:ignore for='inputacontent' class='col-sm-2 control-label'> {{ __('Content') }}</label>
+                <textarea wire:model.lazy='acontent' class="hidden" id="acontent" wire:model.debounce.1999999ms="acontent" wire:key="CkEditor">
+                {!! $this->acontent !!}
                 </textarea>
-                @error('acontent') <div class='invalid-feedback'>{{ $message }}</div> @enderror
 
             </div>
 
@@ -68,9 +67,9 @@
             <div class='form-group'>
                 <label for='language' class='col-sm-4 control-label'> {{ __('Article Language') }}</label>
                <select id="language" wire:model.lazy='language' name="language"> 
-                <option value="en">English</option>
-                <option value="si">Sinhala</option>
-                <option value="tm">Tamil</option>
+                <option wire:key="en" value="en">English</option>
+                <option wire:key="si" value="si">Sinhala</option>
+                <option wire:key="tm" value="tm">Tamil</option>
                </select>
             </div>
             
@@ -121,9 +120,10 @@ function slugify(str)
     ClassicEditor
         .create(document.querySelector('#acontent'))
         .then(editor => {
-             editor.model.document.on('change:data', () => {
-            //document.querySelector('#submit').addEventListener('click', () => {  
+            //  editor.model.document.on('change:data', () => {
+            document.querySelector('#submit').addEventListener('click', () => {  
                 @this.set('acontent', editor.getData());
+
             });
         })
         .catch(error => {

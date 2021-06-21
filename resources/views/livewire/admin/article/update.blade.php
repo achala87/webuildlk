@@ -24,8 +24,8 @@
                
             <!-- Content Input -->
             <div wire:ignore class='form-group'>
-                <label for='inputeditor' class='col-sm-2 control-label'> {{ __('Content') }}</label>
-                <textarea  wire:model.lazy='acontent' id="acontent"  class="form-control @error('acontent') is-invalid @enderror">
+                <label for='inputacontent' class='col-sm-2 control-label'> {{ __('Content') }}</label>
+                <textarea  wire:model.lazy='acontent' id="acontent" >
                 {{ $this->acontent }}
                 </textarea>
                 @error('acontent') <div class='invalid-feedback'>{{ $message }}</div> @enderror
