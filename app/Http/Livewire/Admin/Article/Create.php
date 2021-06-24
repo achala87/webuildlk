@@ -6,6 +6,7 @@ use App\Models\Article;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+
 class Create extends Component
 {
     use WithFileUploads;
@@ -32,7 +33,7 @@ class Create extends Component
 
     public function create()
     {
-        //dd($this->image);
+        //dd($this->category);
         $this->validate();
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Article') ])]);
@@ -66,4 +67,6 @@ class Create extends Component
         return view('livewire.admin.article.create')
             ->layout('admin::layouts.app', ['title' => __('CreateTitle', ['name' => __('Article') ])]);
     }
+
+ 
 }

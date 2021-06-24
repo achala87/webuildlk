@@ -91,6 +91,52 @@
 
 <script>
 
+$(document).ready(function() {
+    $('#category').tagsInput({
+    interactive: true,
+    placeholder: 'Add upto 2 categories',
+    minChars: 3,
+    maxChars: 40, // if not provided there is no limit
+    limit: 2, // if not provided there is no limit
+    width: 'auto', // standard option is 'auto'
+    height: 'auto', // standard option is 'auto'
+    hide: true,
+    delimiter: [',',';'], // or a string with a single delimiter
+    autocomplete: {
+                source: [
+                    'Politics', 'War', 'Reconcilliation', 'Peace', 'Economy', 'Environment', 'Corruption', 'Legal Reform', 'National Policy', ' Governance', 'Military', 'Police', 'Law and Order', 'Law', 'History', 'Art and Culture', 'Music', 'Entertainment', 'buildLK', 'RTI'
+                ]
+	}, 
+    unique: true,
+    removeWithBackspace: true,
+    });
+
+  
+
+    $('#seo_keywords').tagsInput({
+    interactive: true,
+    placeholder: 'Add upto 10 search engine keywords',
+    minChars: 3,
+    maxChars: 30, // if not provided there is no limit
+    limit: 10, // if not provided there is no limit
+    validationPattern: new RegExp('^[a-zA-Z]+$'), // a pattern you can use to validate the input
+    width: 'auto', // standard option is 'auto'
+    height: 'auto', // standard option is 'auto'
+    hide: true,
+    delimiter: [',',';'], // or a string with a single delimiter
+    unique: true,
+    removeWithBackspace: true,
+    });
+
+    document.querySelector('#submit').addEventListener('click', () => {  
+               
+        @this.set('category', $( "#category" ).val());
+        @this.set('seo_keywords', $( "#seo_keywords" ).val());
+        @this.set('acontent', tinyMCE.activeEditor.getContent());
+
+    });
+});
+
 
     function converttoslug(title){
         //alert('2');
@@ -125,17 +171,40 @@ function slugify(str)
 }
 
 
-    ClassicEditor
-        .create(document.querySelector('#acontent'))
-        .then(editor => {
-            // editor.model.document.on('change:data', () => {
-            document.querySelector('#submit').addEventListener('click', () => {   
-                @this.set('acontent', editor.getData());
-            });   
-        })
-        .catch(error => {
-            console.error(error);
-        });
+tinymce.init({
+      selector: '#acontent',
+      height: 500,
+      plugins: 'preview casechange image formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments image casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'BuildLK',
+      images_upload_handler: function (blobinfo, success, failure){
+          var xhr, formdata;
+          xhr = new XMLHttpRequest();
+          xhr.withCredentials = false;
+          xhr.open('POST', '{{ route('upload-image') }}');
+          var token = '{{ csrf_token() }}';
+          xhr.setRequestHeader("X-CSRF-Token", token);
+          xhr.onload = function(){
+              var json;
+              if(xhr.status !=  200){
+                  failure('HTTP Error: '+ xhr.status);
+                  return;
+              }
+              json = JSON.parse(xhr.responseText);
+              if(!json || typeof json.location != 'string'){
+                  failure('Invalid JSON: '+ xhr.responseText);
+                  return;
+              }
+              success(json.location);
+          };
+          formData = new FormData();
+          formData.append('file', blobinfo.blob(), blobinfo.filename());
+          xhr.send(formData);
+      },
+      
+   });
 
 
 </script>

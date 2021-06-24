@@ -12,7 +12,16 @@
     @style('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')
     @script('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
     @script('https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js')
-    <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.tagsinput-revisited.css">
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> <!-- for the articles section tags -->
+  <script src="https://cdn.tiny.cloud/1/xy51ld1w3bnqn30o6d3z1h2daqiqjr13yf62nbkoz8y2zx09/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    @script('/js/jquery.tagsinput-revisited.js')
+    
 
     {{--Styles--}}
     @livewireStyles
@@ -168,7 +177,6 @@
 <!-- End Wrapper -->
 
 <!-- All Scripts -->
-@script("/assets/admin/js/jquery.min.js")
 @script("/assets/admin/js/popper.min.js")
 @script("/assets/admin/js/bootstrap.min.js")
 @script("/assets/admin/js/perfect-scrollbar.jquery.min.js")
@@ -198,24 +206,6 @@
             body.removeChild(child);
         }, 3000);
     });
-
-    // let editor;
-
-    // ClassicEditor
-    //     .create( document.querySelector( '#acontent' ) )
-    //     .then( newEditor => {
-    //         editor = newEditor;
-    //     } )
-    //     .catch( error => {
-    //         console.error( error );
-    //     } 
-    // );
-
-    // document.querySelector( '#submit' ).addEventListener( 'click', () => {
-    //     const editorData = editor.getData();
-    //     document.getElementById("acontent").value = editorData;
-
-    // } );
 
 </script>
 

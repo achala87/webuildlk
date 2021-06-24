@@ -26,6 +26,8 @@ Route::get('/logintoplatform', function () {
     return redirect('/');
 });
 
+Route::post('upload_article_image', [ArticleController::class, 'upload_article_image'])->name('upload-image');
+
 Route::group(['prefix' => '{language}'], function(){
 
     Route::get('home', function () {
@@ -79,7 +81,6 @@ Route::group(['prefix' => '{language}'], function(){
     Route::post('make-pledge', [AntiCorruptionController::class, 'store_pledge'])->name('make-pledge')->middleware('auth');
 
 }); //end group lang
-
 
 
 //coming soon
