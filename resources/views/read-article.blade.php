@@ -20,7 +20,11 @@
 
 
     <div id="hero-image" class="hero-image">
-      <img src="/storage/{{$article->image}}"  height="300" loading="lazy">
+      @if($article->image == 0)
+      <img src="/webuildlk-logo.png"  height="300" loading="lazy">
+      @else
+        <img src="/storage/{{$article->image}}"  height="300" loading="lazy">
+      @endif
       <div class="hero-text">
       <h1>{{ $article->title }}</h1>
             <p> Posted: {{ $article->created_at->diffForHumans() }} </p>

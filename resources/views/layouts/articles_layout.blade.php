@@ -89,13 +89,14 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  padding: 5%;
   transform: translate(-50%, -50%);
   color: white;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photographer.jpg");
 }
 
 #article-content {
-  
+  margin:0 auto;
 }
         </style>
         
@@ -118,13 +119,19 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
       <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Rate Organization</a>
+          <a class="nav-link" aria-current="page" href="{{ route('list-organizations', app()->getLocale() ) }}">Rate Organization</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">I Pledge</a>
+          <a class="nav-link" aria-current="page" href="{{ route('anti-corruption', app()->getLocale()) }}">I Pledge</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Economy</a>
+          <a class="nav-link" href="{{ route('value-added-economy', app()->getLocale()) }}">Economy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('centralized-cities-environment', app()->getLocale()) }}">Environment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('articles', app()->getLocale()) }}">Articles</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Timeline</a>
