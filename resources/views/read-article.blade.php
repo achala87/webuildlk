@@ -14,9 +14,9 @@
   <article class="blog-post">
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="{{$article->title}}">
-    <meta itemprop="description" content="{{ $article->seo_description}}">
-    <meta itemprop="dateModified" content="{{$article->modified_at}}">
+  <meta itemprop="headline" content="{{$article->title}}">
+  <meta itemprop="description" content="{{ $article->seo_description}}">
+  <meta itemprop="dateModified" content="{{$article->modified_at}}">
 
 
     <div id="hero-image" class="hero-image">
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="article-body">
+    <div id="article-content" class="w3-container w3-content w3-justify w3-center w3-padding-64" style="max-width:800px" >
     {!! $article->acontent !!}
     </div>
       
