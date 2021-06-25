@@ -44,4 +44,4 @@ jobs:
           ln -sfn /var/www/buildlk.com/releases/${{ env.current_timestamp }} /var/www/buildlk.com/public_html
           ln -sfn /var/www/buildlk.com/.env /var/www/buildlk.com/public_html/.env
           chmod -R 775 /var/www/buildlk.com/public_html/storage
-          chmod -R 775 /var/www/buildlk.com/bootstrap/cache
+          chmod -R 775 /var/www/buildlk.com/bootstrap
