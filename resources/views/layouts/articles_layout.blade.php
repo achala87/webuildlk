@@ -68,8 +68,77 @@
 
 
 
-        <style>
-        /* The hero image */
+<style>
+
+ /* Timeline CSS */
+ /*  Code By Webdevtrick ( https://webdevtrick.com )  */
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap");
+html {
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration:none;
+  background-color:transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.5;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 16.66% 50px;
+  width: 100%;
+}
+
+article {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.navigations {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  transition: top 0.3s ease-out;
+}
+.navigations ul {
+  list-style: none;
+  list-style-position: inside;
+  margin: 15px 0;
+}
+.navigations ul li {
+  margin: 15px 0;
+  padding-left: 0;
+  list-style-type: none;
+  color: #bfc1c3;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.navigations ul li.active {
+  font-weight: bold;
+  color: #f94125;
+  border-bottom: 1px dotted transparent;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.navigations ul li:hover {
+  color: #000;
+}
+
+  /* Timeline CSS */
+
+ /* The hero image */
 #hero-image {
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
@@ -198,6 +267,82 @@ a{
 		$('.input-group #search_param').val(param);
 	});
 }); -->
+</script>
+
+<script>
+  //  Code By Webdevtrick ( https://webdevtrick.com ) 
+$(() => {
+  let stickyTop = 0,
+  scrollTarget = false;
+
+  let timeline = $('.navigations'),
+  items = $('li', timeline),
+  singleSECs = $('.sections .singleSEC'),
+  offsetTop = parseInt(timeline.css('top'));
+
+  const TIMELINE_VALUES = {
+    start: 190,
+    step: 30 };
+
+
+  $(window).resize(function () {
+    timeline.removeClass('fixed');
+
+    stickyTop = timeline.offset().top - offsetTop;
+
+    $(window).trigger('scroll');
+  }).trigger('resize');
+
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > stickyTop) {
+      timeline.addClass('fixed');
+    } else {
+      timeline.removeClass('fixed');
+    }
+  }).trigger('scroll');
+
+  items.find('span').click(function () {
+    let li = $(this).parent(),
+    index = li.index(),
+    singleSEC = singleSECs.eq(index);
+
+    if (!li.hasClass('active') && singleSEC.length) {
+      scrollTarget = index;
+
+      let scrollTargetTop = singleSEC.offset().top - 80;
+
+      $('html, body').animate({ scrollTop: scrollTargetTop }, {
+        duration: 400,
+        complete: function complete() {
+          scrollTarget = false;
+        } });
+
+    }
+  });
+
+  $(window).scroll(function () {
+    let viewLine = $(window).scrollTop() + $(window).height() / 3,
+    active = -1;
+
+    if (scrollTarget === false) {
+      singleSECs.each(function () {
+        if ($(this).offset().top - viewLine > 0) {
+          return false;
+        }
+
+        active++;
+      });
+    } else {
+      active = scrollTarget;
+    }
+
+    timeline.css('top', -1 * active * TIMELINE_VALUES.step + TIMELINE_VALUES.start + 'px');
+
+    items.filter('.active').removeClass('active');
+
+    items.eq(active != -1 ? active : 0).addClass('active');
+  }).trigger('scroll');
+});
 </script>
 
 </html>
