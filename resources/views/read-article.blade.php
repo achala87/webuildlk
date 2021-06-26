@@ -9,37 +9,51 @@
 
 <div class="container">
 
-        @isset($article)
-
-  <article class="blog-post">
-
+  @isset($article)
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
   <meta itemprop="headline" content="{{$article->title}}">
   <meta itemprop="description" content="{{ $article->seo_description}}">
   <meta itemprop="dateModified" content="{{$article->modified_at}}">
 
-
-    <div id="hero-image" class="hero-image">
-      @if($article->image == 0)
-      <img src="/webuildlk-logo.png"  height="300" loading="lazy">
-      @else
-        <img src="/storage/{{$article->image}}"  height="300" loading="lazy">
-      @endif
-      <div class="hero-text">
+  <div class="row">
+    <div id="categories" class="col-sm-8">
+      @foreach($categories as $cat)
+        <a href="#"><span class="badge" style="color:#000;">{{ $cat }} </span></a>
+      @endforeach
+    </div>
+    <div id="categories" class="col-sm-4" justify="right">
+      
+    </div>
+  </div>
+  <div class="row">
+    <div id="hero-image" class="col-sm-12">
+      <img src="/storage/{{ $article->image }}"  loading="lazy">
+    </div>
+  </div>
+  <div class="row">
+    <div id="hero-text" class="col-sm-12">
       <h1>{{ $article->title }}</h1>
-            <p> Posted: {{ $article->created_at->diffForHumans() }} </p>
-            <p> Author: {{ $article->user->name }} </p>
-            <p> {!! nl2br(e($article->seo_description)) !!} </p>
-      </div>
+          <p> Posted: {{ $article->created_at->diffForHumans() }} </p>
+          <p> Author: {{ $article->user->name }} </p>
+          <p> {!! nl2br(e($article->seo_description)) !!} </p>
     </div>
+  </div>
 
-    <div id="article-content" class="w3-container w3-content w3-justify w3-center w3-padding-64" style="max-width:800px" >
-    {!! $article->acontent !!}
+  <div class="row">
+    <div id="article-content" class="col-sm-12">
+      {!! $article->acontent !!}
     </div>
+  </div>
       
-    </article>
+  </article>
       
-        @endisset
+  @endisset
+  <div class="row">
+    <div id="article-content" class="col-sm-12">
+      <a href="#" class="previous">&laquo; Previous</a>
+      <a href="#" class="next">Next &raquo;</a>
+  </div>
+  </div>
    
 </div>
 

@@ -77,6 +77,12 @@ Route::group(['prefix' => '{language}'], function(){
     //about us page
     Route::get('about-us', function () { return view('about-us'); })->name('about-us');
 
+     //national dashboard
+     Route::get('national-dashboard-srilanka', function () { return view('sl_dashboard'); })->name('national-dashboard-srilanka');
+
+     //timeline
+     Route::get('national-timeline-srilanka', function () { return view('sl_timeline'); })->name('national-timeline-srilanka');
+
      //pledge
     Route::post('make-pledge', [AntiCorruptionController::class, 'store_pledge'])->name('make-pledge')->middleware('auth');
 

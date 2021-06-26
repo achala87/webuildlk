@@ -12,9 +12,6 @@
       
          <p>If you 'search' and still can't find the organization you want to rate, 
          <a href="{{ route('add-organization', app()->getLocale()) }}">Create organization</a> and add your review rating</p>
-   
- 
-
 
             @if(Session::has('sucessrating'))
                <div class="alert alert-success">

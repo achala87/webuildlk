@@ -43,13 +43,11 @@
       <div class="container col-xxl-8 px-4 py-0">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-1">
       <div class="col-10 col-sm-8 col-lg-6">
-      
-        <img src="/storage/image/buildlklogo.JPG" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="300" height="200" loading="lazy">
+        <img src="/webuildlk-logo.png" class="d-block mx-lg-auto img-fluid" alt="logo" width="300" height="200" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">United for Sri Lanka</h1>
-        <p class="lead">Professionals and academia share tangible activities and processeses to develop an united, 
-        peaceful, properous, healthy, sustainably developed  and vibrant nation free of corruption we proudly call Sri Lanka.</p>
+        <p class="lead">Professionals and academia share tangible activities and processeses to develop a peaceful, properous, healthy, sustainably developed  and vibrant nation free of corruption we proudly call Sri Lanka.</p>
        
       </div>
     </div>
@@ -66,7 +64,7 @@
           @isset($article->category)
           @foreach(json_decode($article->category) as $tag)
             
-           <?php $articleImg = !empty($article->image) ? "/storage/".$article->image : "/storage/image/buildlklogo.JPG" ?>
+           <?php $articleImg = !empty($article->image) ? "/storage/".$article->image : "/storage/image/buildlklogo.jpg" ?>
 
             @if($tag == "featured")
             <div class="col-md-6 ">

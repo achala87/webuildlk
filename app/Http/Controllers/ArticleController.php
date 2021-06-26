@@ -20,7 +20,7 @@ class ArticleController extends Controller
     { 
         $slug = urldecode(request()->segment(3));
         $data['article'] = Article::where('slug', $slug)->first();
-
+        $data['categories'] = json_decode($data['article']->category);
         return view('read-article', $data);
     }
 

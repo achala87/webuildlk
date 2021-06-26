@@ -40,6 +40,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+       
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
@@ -66,6 +67,7 @@
   </script>
 
 
+
         <style>
         /* The hero image */
 #hero-image {
@@ -73,31 +75,60 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  display:block;
+  margin-top:1em;
+  margin-bottom:0;
+  width:100%;
+  height: 302px;
+  margin:0 auto;
 }
 
 #hero-image img{
-  width: 400px;
+  height: 300px;
   margin:0 auto;
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photographer.jpg");
-
 }
 /* Place text in the middle of the image */
-.hero-text {
+#hero-text {
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 5%;
-  transform: translate(-50%, -50%);
+  font-size: 1em;
+  top: 1%;
+  padding: 1%;
+  width: 80%;
   color: white;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photographer.jpg");
+  display:block;
+  margin:0 auto;
+}
+
+#hero-text h1{
+  font-size: 1.2em;
 }
 
 #article-content {
+  display:block;
+  margin-top:2em;
+  margin-bottom:2em;
+  width:80%;
+  height: auto;
   margin:0 auto;
 }
+
+.previous {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+a{
+  background-color: #f1f1f1;
+  color: black;
+}
+
         </style>
         
     </head>
@@ -134,7 +165,10 @@
           <a class="nav-link" href="{{ route('articles', app()->getLocale()) }}">Articles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Timeline</a>
+          <a class="nav-link" href="{{ route('national-timeline-srilanka', app()->getLocale()) }}">Timeline</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('national-dashboard-srilanka', app()->getLocale()) }}">Dashboard</a>
         </li>
         <!-- <li class="nav-item dropup">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Dropup</a>
