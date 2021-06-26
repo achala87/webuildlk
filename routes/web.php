@@ -77,6 +77,8 @@ Route::group(['prefix' => '{language}'], function(){
     //about us page
     Route::get('about-us', function () { return view('about-us'); })->name('about-us');
 
+
+
      //national dashboard
      Route::get('national-dashboard-srilanka', function () { return view('sl_dashboard'); })->name('national-dashboard-srilanka');
 
