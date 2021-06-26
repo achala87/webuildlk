@@ -56,7 +56,7 @@
                 <a href="{{ route('articles', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Articles</a>
             </li> 
             <li class="nav-item">
-                <a href="#" class="ml-4 text-sm text-gray-700">Timeline</a>
+                <a href="{{ route('national-timeline-srilanka', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">Timeline</a>
             </li> 
             <li class="nav-item">
                 <a href="{{ route('about-us', app()->getLocale()) }}" class="ml-4 text-sm text-gray-700">About</a>
