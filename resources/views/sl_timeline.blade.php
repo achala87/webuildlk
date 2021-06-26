@@ -20,19 +20,7 @@
                 <li><span>21-04-2019</span></li>
                 <li><span>18-11-2019</span></li>
                 <li><span>21-11-2019</span></li>
-                <!-- <li><span>2008</span></li>
-                <li><span>2009</span></li>
-                <li><span>2010</span></li>
-                <li><span>2011</span></li>
-                <li><span>2012</span></li>
-                <li><span>2013</span></li>
-                <li><span>2014</span></li>
-                <li><span>2015</span></li>
-                <li><span>2016</span></li>
-                <li><span>2017</span></li>
-                <li><span>2018</span></li>
-                <li><span>2019</span></li>
-                <li><span>2020</span></li> --> 
+               
             </ul>
         </nav>
         <section class="sections">
@@ -228,7 +216,7 @@
         </section>
     </article>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    
 
 
 
