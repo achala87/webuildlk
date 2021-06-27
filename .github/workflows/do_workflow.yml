@@ -46,4 +46,3 @@ jobs:
           rm -r /var/www/buildlk.com/releases/${{ env.current_timestamp }}/storage
           ln -sfn /var/www/buildlk.com/storage /var/www/buildlk.com/releases/${{ env.current_timestamp }}/storage
           cd /var/www/buildlk.com/releases/${{ env.current_timestamp }} && php artisan storage:link
-          chmod -R 777 /var/www/buildlk.com/public_html/storage
