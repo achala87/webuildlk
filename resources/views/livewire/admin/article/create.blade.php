@@ -121,9 +121,9 @@ tinymce.init({
 $(document).ready(function() {
     $('#category').tagsInput({
     interactive: true,
-    placeholder: 'Add upto 2 categories',
+    placeholder: 'Add upto 2 categories - use , to separate',
     minChars: 3,
-    maxChars: 40, // if not provided there is no limit
+    maxChars: 60, // if not provided there is no limit
     limit: 2, // if not provided there is no limit
     width: 'auto', // standard option is 'auto'
     height: 'auto', // standard option is 'auto'
@@ -142,9 +142,9 @@ $(document).ready(function() {
 
     $('#seo_keywords').tagsInput({
     interactive: true,
-    placeholder: 'Add upto 10 search engine keywords',
+    placeholder: 'Add upto 10 search engine keywords - use , to separate',
     minChars: 3,
-    maxChars: 30, // if not provided there is no limit
+    maxChars: 60, // if not provided there is no limit
     limit: 10, // if not provided there is no limit
     validationPattern: new RegExp('^[a-zA-Z]+$'), // a pattern you can use to validate the input
     width: 'auto', // standard option is 'auto'

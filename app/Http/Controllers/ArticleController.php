@@ -16,7 +16,7 @@ class ArticleController extends Controller
 
     }
 
-    public function read_article(Request $request, $ti)
+    public function read_article(Request $request)
     { 
         $slug = urldecode(request()->segment(3));
         $data['article'] = Article::where('slug', $slug)->first();
@@ -32,4 +32,29 @@ class ArticleController extends Controller
         return json_encode(['location' => asset('storage/image/articles/'.$filename) ]);
         exit;
     }
+
+    public function article_search($searchparam = 0, Request $request)
+    {   
+        $filtertype = 'dropdown';
+        if($searchparam == 0){ 
+            $filtertype = 'content';
+        }
+
+        //search from content search input field
+        if($filtertype == 'content'){ 
+            $data['articles'] = Article::where('acontent', 'like', '%'. $request->input('search_term') . '%' )->orderBy('created_at', 'desc')->get();
+        }
+        
+        //search from drop down category
+        if($filtertype == 'dropdown'){
+            $data['articles'] = Article::whereJsonContains('category', $searchparam)->orderBy('created_at', 'desc')->get();
+        }
+        
+        if(!$data['articles']){
+            return redirect()->route('articles', app()->getLocale());
+         }
+
+         return view('view-articles', $data );
+    }
+    
 }

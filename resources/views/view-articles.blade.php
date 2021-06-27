@@ -9,29 +9,38 @@
       <div class="container"> 
       
       <div class="row">    
-        <div class="col-xs-8 col-xs-offset-2">
-		    <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    	<span id="search_concept">Filter by</span> <span class="caret"></span>
+        <div class="col-lg-12 col-md-12 col-xs-8 mb-3">
+        <form style="width:100%;" action="{{ route('article_search', app()->getLocale() ) }}" method="GET" role="search">
+		          <div class="input-group col-lg-2 col-md-2">
+                  <div class="btn-group">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      Category
                     </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#contains">Contains</a></li>
-                      <li><a href="#its_equal">It's equal</a></li>
-                      <li><a href="#greather_than">Greather than ></a></li>
-                      <li><a href="#less_than">Less than < </a></li>
-                      <li class="divider"></li>
-                      <li><a href="#all">Anything</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Economy']) }}">Economy</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Environment']) }}">Environment</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'War and Peace']) }}">War and Peace</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Sustainable Development']) }}">Sustainable Development</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Agriculture']) }}">Agriculture</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'ICT']) }}">ICT</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Healthcare']) }}">Healthcare</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Security']) }}">Security</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Fisheries']) }}">Fisheries</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Cities and Colonization']) }}">Cities and Colonization</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Services Economy']) }}">Services Economy</a></li>
+                      <li><a class="dropdown-item" href="{{ route('article_search', app()->getLocale(), ['search'=>'Industry - Value Added Production']) }}">Industry - Value Added Production</a></li>
                     </ul>
                 </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">         
-                <input type="text" class="form-control" name="x" placeholder="Search term...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
+              </div>
+              <div class="input-group col-lg-8 col-md-8"> 
+                  <input type="text" class="form-control" name="search_term" placeholder="Search term in article content...">
+              </div>
+              <div class="input-group col-lg-2 col-md-2">  
+                  <button style="float:left;" class="btn btn-default" type="submmit">Search<span class="glyphicon glyphicon-search"></span></button>
+                </form>
             </div>
+	        </div>
         </div>
-	</div>
 
 
       

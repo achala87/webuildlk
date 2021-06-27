@@ -28,6 +28,8 @@ Route::get('/logintoplatform', function () {
 
 Route::post('upload_article_image', [ArticleController::class, 'upload_article_image'])->name('upload-image');
 
+
+
 Route::group(['prefix' => '{language}'], function(){
 
     Route::get('home', function () {
@@ -43,13 +45,13 @@ Route::group(['prefix' => '{language}'], function(){
     })->middleware(['auth'])->name('dashboard');
 
     Route::get('articles', [ArticleController::class, 'index'])->name('articles');
+    Route::get('article_search/{search?}', [ArticleController::class, 'article_search'])->name('article_search');
+    
     Route::get('read-article/{slug?}', [ArticleController::class, 'read_article'])->name('read-article');
 
     Route::get('list-organizations', [OrganizationsController::class, 'index'])->name('list-organizations');
 
     Route::get('rate-organization/{id?}', [OrganizationsController::class, 'set_org_rating'])->name('rate-organization')->middleware('auth');
-
-    //Route::get('/list-organization', 'OrganizationsController@index')->name('list-organization');
 
     Route::get('add-organization', [OrganizationsController::class, 'create'])->name('add-organization')->middleware('auth');
     Route::post('post-organization', [OrganizationsController::class, 'store'])->name('post-organization')->middleware('auth');
@@ -77,8 +79,6 @@ Route::group(['prefix' => '{language}'], function(){
     //about us page
     Route::get('about-us', function () { return view('about-us'); })->name('about-us');
 
-
-
      //national dashboard
      Route::get('national-dashboard-srilanka', function () { return view('sl_dashboard'); })->name('national-dashboard-srilanka');
 
@@ -90,14 +90,10 @@ Route::group(['prefix' => '{language}'], function(){
 
 }); //end group lang
 
-
 //coming soon
 Route::get('coming-soon', [SystemMessagesController::class, 'index'])->name('coming-soon');
 
 //audit records admin dashboard
 Route::get('audits', [AuditController::class, 'index']);
-
-// Route::get('audits', 'AuditController@index')
-// ->middleware('auth', \App\Http\Middleware\AllowOnlyAdmin::class);
 
 require __DIR__.'/auth.php';
