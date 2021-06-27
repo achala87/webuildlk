@@ -8,12 +8,11 @@
        
       <div class="container"> 
       
-      <div class="row">    
-        <div class="col-lg-12 col-md-12 col-xs-8 mb-3">
-        <form style="width:100%;" action="{{ route('article_search', app()->getLocale() ) }}" method="GET" role="search">
-		          <div class="input-group col-lg-2 col-md-2">
+      <div class="row" style="margin: 0 auto;">    
+        <form style="display: flex; flex-direction: row;" action="{{ route('article_search', app()->getLocale() ) }}" method="GET" role="search">
+		          <div class="col-lg-2 col-md-2 col-sm-2">
                   <div class="btn-group">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" style="flex:" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                       Category
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -32,14 +31,13 @@
                     </ul>
                 </div>
               </div>
-              <div class="input-group col-lg-8 col-md-8"> 
+                <div class="col-lg-9 col-md-8 col-sm-8"> 
                   <input type="text" class="form-control" name="search_term" placeholder="Search term in article content...">
-              </div>
-              <div class="input-group col-lg-2 col-md-2">  
-                  <button style="float:left;" class="btn btn-default" type="submmit">Search<span class="glyphicon glyphicon-search"></span></button>
-                </form>
-            </div>
-	        </div>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-2">  
+                  <button class="btn btn-light" type="submmit">Search<span class="glyphicon glyphicon-search"></span></button>
+                </div>
+              </form>
         </div>
 
 
