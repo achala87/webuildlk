@@ -33,6 +33,16 @@
               </div>
                 <div class="col-lg-9 col-md-8 col-sm-8"> 
                   <input type="text" class="form-control" name="search_term" placeholder="Search term in article content...">
+                  <script src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@{version}/dist/cdn/docs-searchbar.min.js"></script>
+                  <script>
+                    docsSearchBar({
+                      hostUrl: 'http://meilisearch:7700',
+                      apiKey: '',
+                      indexUid: 'articles',
+                      inputSelector: '#search-term',
+                      debug: true // Set debug to true if you want to inspect the dropdown
+                  });
+                  </script>
                 </div>
                 <div class="col-lg-1 col-md-2 col-sm-2">  
                   <button class="btn btn-light" type="submmit">Search<span class="glyphicon glyphicon-search"></span></button>
