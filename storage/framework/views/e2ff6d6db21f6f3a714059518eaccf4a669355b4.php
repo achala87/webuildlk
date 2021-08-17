@@ -17,40 +17,30 @@
         <form style="display: flex; flex-direction: row;" action="<?php echo e(route('article_search', app()->getLocale() )); ?>" method="GET" role="search">
 		          <div class="col-lg-2 col-md-2 col-sm-2">
                   <div class="btn-group">
-                    <button class="btn btn-secondary dropdown-toggle" style="flex:" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" style="flex:none" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                       Category
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Economy'])); ?>">Economy</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Environment'])); ?>">Environment</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'War and Peace'])); ?>">War and Peace</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Sustainable Development'])); ?>">Sustainable Development</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Agriculture'])); ?>">Agriculture</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'ICT'])); ?>">ICT</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Healthcare'])); ?>">Healthcare</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Security'])); ?>">Security</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Fisheries'])); ?>">Fisheries</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Cities and Colonization'])); ?>">Cities and Colonization</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Services Economy'])); ?>">Services Economy</a></li>
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', app()->getLocale(), ['search'=>'Industry - Value Added Production'])); ?>">Industry - Value Added Production</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Economy', app()->getLocale())); ?>">Economy</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Environment', app()->getLocale())); ?>">Environment</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'War and Peace', app()->getLocale())); ?>">War and Peace</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Sustainable Development', app()->getLocale())); ?>">Sustainable Development</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Agriculture', app()->getLocale())); ?>">Agriculture</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'ICT', app()->getLocale())); ?>">ICT</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Healthcare', app()->getLocale())); ?>">Healthcare</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Security', app()->getLocale())); ?>">Security</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Fisheries', app()->getLocale())); ?>">Fisheries</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Cities and Colonization', app()->getLocale())); ?>">Cities and Colonization</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Services Economy', app()->getLocale())); ?>">Services Economy</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Industry - Value Added Production', app()->getLocale())); ?>">Industry - Value Added Production</a></li>
                     </ul>
                 </div>
               </div>
                 <div class="col-lg-9 col-md-8 col-sm-8"> 
-                  <input type="text" class="form-control" name="search_term" placeholder="Search term in article content...">
-                  <script src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@{version}/dist/cdn/docs-searchbar.min.js"></script>
-                  <script>
-                    docsSearchBar({
-                      hostUrl: 'http://meilisearch:7700',
-                      apiKey: '',
-                      indexUid: 'articles',
-                      inputSelector: '#search-term',
-                      debug: true // Set debug to true if you want to inspect the dropdown
-                  });
-                  </script>
+                  <input type="text" class="form-control" id="search_term" name="search_term" placeholder="Search term in article content...">
                 </div>
                 <div class="col-lg-1 col-md-2 col-sm-2">  
-                  <button class="btn btn-light" type="submmit">Search<span class="glyphicon glyphicon-search"></span></button>
+                  <button class="btn btn-light" type="submit">Search<span class="glyphicon glyphicon-search"></span></button>
                 </div>
               </form>
         </div>
@@ -78,7 +68,7 @@
 <?php $checkFeatured = 0 ?>
 
         <?php if(isset($articles)): ?>
-        <!-- <div class="mt-10 max-w-xl mx-auto"> -->
+        <div class="mt-10 max-w-xl mx-auto">
         <div class="row mb-2">
         <?php $articleImg; ?>
         <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

@@ -15,10 +15,12 @@ class Article extends Model implements Auditable
     use \OwenIt\Auditing\Auditable;
     use Searchable;
 
-    protected $fillable = [
-        'title', 'acontent', 'user_id', 'image', 'created_at', 'seo_description',
-        'category', 'slug', 'language', 'seo_keywords',
-    ];
+    // protected $fillable = [
+    //     'title', 'acontent', 'user_id', 'image', 'created_at', 'seo_description',
+    //     'category', 'slug', 'language', 'seo_keywords',
+    // ];
+
+    protected $guarded = ['id']; //to make fields insertable
 
     /**
      * Get the user that owns the phone.
