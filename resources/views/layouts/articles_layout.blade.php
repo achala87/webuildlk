@@ -153,7 +153,7 @@ article {
 }
 
 #hero-image img{
-  height: 300px;
+  max-height: 300px;
   margin:0 auto;
 }
 /* Place text in the middle of the image */
