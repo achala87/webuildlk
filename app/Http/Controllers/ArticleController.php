@@ -33,7 +33,7 @@ class ArticleController extends Controller
         exit;
     }
 
-    public function article_search($searchparam, Request $request)
+    public function article_search($searchparam, Request $request) //modified part
     {   
         
         $query = $request->get('search_term');

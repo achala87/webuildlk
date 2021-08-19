@@ -52,6 +52,6 @@ class User extends Authenticatable implements Auditable
 
     public function article()
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Article::class); //new function
     }
 }

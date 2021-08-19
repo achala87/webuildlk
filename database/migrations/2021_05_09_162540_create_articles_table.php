@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->text('acontent');
             $table->string('image')->default('0');
-            $table->foreignId('user_id'); //created foreign key
+            $table->foreignId('user_id'); // created foreign key
             $table->softDeletesTz('deleted_at', 0);
         });
     }

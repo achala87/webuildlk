@@ -20,7 +20,7 @@ class Article extends Model implements Auditable
     //     'category', 'slug', 'language', 'seo_keywords',
     // ];
 
-    protected $guarded = ['id']; //to make fields insertable
+    protected $guarded = ['id']; //to make the fields insertable
 
     /**
      * Get the user that owns the phone.
