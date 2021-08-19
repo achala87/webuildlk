@@ -194,7 +194,7 @@ class OrganizationsController extends Controller
          $review->description  = $request->description;
          $review->date_from = $request->from;
          $review->date_to = $request->to;
-         $review->designation_of_officers = $request->officers;
+         $review->designation_of_officers = json_encode($request->officers);
          $review->service_saught = $request->service_requested;
          $review->service_recieved = $request->service_recieved;
          $review->service_quality = $request->service_quality;
