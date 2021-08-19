@@ -24,7 +24,7 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'acontent' => $this->faker->paragraph,
+            'acontent' => $this->faker->paragraph, //article factory definition
             'user_id' => User::factory()
         ];
     }
