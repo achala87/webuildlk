@@ -37,18 +37,6 @@ services:
           test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
           retries: 3
           timeout: 5s
-    meilisearch:
-        image: 'getmeili/meilisearch:latest'
-        ports:
-            - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
-        volumes:
-            - 'meilidata:/data.ms'
-        networks:
-            - sail
-        healthcheck:
-            test: ["CMD", "wget", "--no-verbose", "--spider",  "http://localhost:7700/health"]
-            retries: 3
-            timeout: 5s
 networks:
     sail:
         driver: bridge
