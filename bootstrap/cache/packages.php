@@ -81,13 +81,6 @@
       'Livewire' => 'Livewire\\Livewire',
     ),
   ),
-  'meilisearch/meilisearch-laravel-scout' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Meilisearch\\Scout\\MeilisearchServiceProvider',
-    ),
-  ),
   'nesbot/carbon' => 
   array (
     'providers' => 
