@@ -43,5 +43,3 @@ networks:
 volumes:
     sailmysql:
         driver: local
-    meilidata:
-        driver: local
