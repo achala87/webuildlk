@@ -34,12 +34,23 @@ services:
         networks:
             - sail
         healthcheck:
-          test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
-          retries: 3
-          timeout: 5s
+            test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+            retries: 3
+            timeout: 5s
+    meilisearch:
+      image: 'getmeili/meilisearch:latest'
+      ports:
+          - 7700:7700
+      networks:
+          - sail
+      volumes:
+        - 'meilisearch:/data.ms'
+     # command: ./meilisearch --master-key=masterKey --no-analytics=true
 networks:
     sail:
         driver: bridge
 volumes:
     sailmysql:
+        driver: local
+    meilisearch:
         driver: local
