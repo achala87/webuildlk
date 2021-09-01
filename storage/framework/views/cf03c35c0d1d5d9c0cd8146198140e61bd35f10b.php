@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-  <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+  <html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="description" content="@yield('page_description')">
-        <meta name="keywords" content="@yield('page_keywords')">
-        <meta name="author" content="@yield('author')">
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+        <meta name="description" content="<?php echo $__env->yieldContent('page_description'); ?>">
+        <meta name="keywords" content="<?php echo $__env->yieldContent('page_keywords'); ?>">
+        <meta name="author" content="<?php echo $__env->yieldContent('author'); ?>">
 
         <meta name="twitter:card" content="summary" />
         <!-- <meta name="twitter:site" content="@flickr" /> -->
-        <meta name="twitter:title" content="@yield('slug')" />
-        <meta name="twitter:description" content="@yield('page_description')" />
+        <meta name="twitter:title" content="<?php echo $__env->yieldContent('slug'); ?>" />
+        <meta name="twitter:description" content="<?php echo $__env->yieldContent('page_description'); ?>" />
         <!-- <meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" /> -->
 
         <meta property="fb:app_id" content="1234567890" /> 
         <meta property="og:type" content="article" /> 
-        <meta property="og:url" content="@yield('slug')" /> 
-        <meta property="og:title" content="@yield('title')" /> 
+        <meta property="og:url" content="<?php echo $__env->yieldContent('slug'); ?>" /> 
+        <meta property="og:title" content="<?php echo $__env->yieldContent('title'); ?>" /> 
         <!-- <meta property="og:image"           content="https://scontent-sea1-1.xx.fbcdn.net/hphotos-xap1/t39.2178-6/851565_496755187057665_544240989_n.jpg" />  -->
-        <meta property="og:description" content="@yield('page_description')" />
+        <meta property="og:description" content="<?php echo $__env->yieldContent('page_description'); ?>" />
 
-        <meta property='article:author' content="@yield('author')" />
+        <meta property='article:author' content="<?php echo $__env->yieldContent('author'); ?>" />
         <meta property='article:publisher' content='https://wwww.buildlk.com' />
-        <meta property='article:published_time' content="@yield('published')" />
-        <meta property='article:modified_time' content="@yield('modified')" />
-        <meta property='article:tag' content="@yield('seo_keywords')" />
+        <meta property='article:published_time' content="<?php echo $__env->yieldContent('published'); ?>" />
+        <meta property='article:modified_time' content="<?php echo $__env->yieldContent('modified'); ?>" />
+        <meta property='article:tag' content="<?php echo $__env->yieldContent('seo_keywords'); ?>" />
         <meta property='og:site_name' content='Build Sri Lanka' />
 
-        <link rel="canonical" href="@yield('slug')">
+        <link rel="canonical" href="<?php echo $__env->yieldContent('slug'); ?>">
         <meta name="msvalidate.01" content="4BE9A236252D15311B31D1EA103EE632" />
                 
-        <title>@yield('title')</title>
+        <title><?php echo $__env->yieldContent('title'); ?></title>
                 
         <!-- http://t.co/dKP3o1e -->
         <meta name="HandheldFriendly" content="True">
@@ -39,7 +39,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
        
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -72,7 +72,7 @@
 
  /* Timeline CSS */
  /*  Code By Webdevtrick ( https://webdevtrick.com )  */
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap");
+@import  url("https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap");
 html {
   box-sizing: border-box;
 }
@@ -204,9 +204,9 @@ a{
     <body class="antialiased">
         <div class="min-h-screen">
             <main>
-            @isset($slot)
-                {{ $slot }}  
-            @endisset
+            <?php if(isset($slot)): ?>
+                <?php echo e($slot); ?>  
+            <?php endif; ?>
             </main>
         </div>
 
@@ -219,25 +219,25 @@ a{
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
       <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{ route('list-organizations', app()->getLocale() ) }}">Rate Organization</a>
+          <a class="nav-link" aria-current="page" href="<?php echo e(route('list-organizations', app()->getLocale() )); ?>">Rate Organization</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{ route('anti-corruption', app()->getLocale()) }}">I Pledge</a>
+          <a class="nav-link" aria-current="page" href="<?php echo e(route('anti-corruption', app()->getLocale())); ?>">I Pledge</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('value-added-economy', app()->getLocale()) }}">Economy</a>
+          <a class="nav-link" href="<?php echo e(route('value-added-economy', app()->getLocale())); ?>">Economy</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('centralized-cities-environment', app()->getLocale()) }}">Environment</a>
+          <a class="nav-link" href="<?php echo e(route('centralized-cities-environment', app()->getLocale())); ?>">Environment</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('articles', app()->getLocale()) }}">Articles</a>
+          <a class="nav-link" href="<?php echo e(route('articles', app()->getLocale())); ?>">Articles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('national-timeline-srilanka', app()->getLocale()) }}">Timeline</a>
+          <a class="nav-link" href="<?php echo e(route('national-timeline-srilanka', app()->getLocale())); ?>">Timeline</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('national-dashboard-srilanka', app()->getLocale()) }}">Dashboard</a>
+          <a class="nav-link" href="<?php echo e(route('national-dashboard-srilanka', app()->getLocale())); ?>">Dashboard</a>
         </li>
         <!-- <li class="nav-item dropup">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Dropup</a>
@@ -254,7 +254,7 @@ a{
 
     </body>
 
- <script src="{{ asset('js/app.js') }}" defer></script>
+ <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
@@ -337,3 +337,4 @@ $(() => {
 </script>
 
 </html>
+<?php /**PATH /var/www/html/resources/views/layouts/articles_layout.blade.php ENDPATH**/ ?>

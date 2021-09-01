@@ -20,14 +20,16 @@ class User extends Authenticatable implements Auditable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'contact_no',
-        'address',
-        'is_superuser',
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    //     'contact_no',
+    //     'address',
+    //     'is_superuser',
+    // ];
+
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -47,4 +49,9 @@ class User extends Authenticatable implements Auditable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function article()
+    {
+        return $this->hasMany(Article::class); //new function
+    }
 }

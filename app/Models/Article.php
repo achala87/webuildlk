@@ -13,14 +13,17 @@ class Article extends Model implements Auditable
     use HasFactory, Notifiable;
     use \OwenIt\Auditing\Auditable;
 
-    protected $fillable = [
-        'title', 'acontent', 'user_id', 'image', 'created_at', 'seo_description',
-        'category', 'slug', 'language', 'seo_keywords',
-    ];
+    // protected $fillable = [
+    //     'title', 'acontent', 'user_id', 'image', 'created_at', 'seo_description',
+    //     'category', 'slug', 'language', 'seo_keywords',
+    // ];
+
+    protected $guarded = ['id']; //to make the fields insertable
 
     /**
      * Get the user that owns the phone.
      */
+
     public function user()
     {
         return $this->belongsTo(User::class);
