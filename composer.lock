@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb8bc726295f0dafad0c76781f9edfda",
+    "content-hash": "1be2fd25775f8e6b6957284d0d1d0b3b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1729,75 +1729,6 @@
             "time": "2021-08-17T14:13:34+00:00"
         },
         {
-            "name": "laravel/scout",
-            "version": "v8.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/scout.git",
-                "reference": "7fb1c860a2fd904f0e084a7cc3641eb1448ba278"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/scout/zipball/7fb1c860a2fd904f0e084a7cc3641eb1448ba278",
-                "reference": "7fb1c860a2fd904f0e084a7cc3641eb1448ba278",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/bus": "^6.0|^7.0|^8.0",
-                "illuminate/contracts": "^6.0|^7.0|^8.0",
-                "illuminate/database": "^6.0|^7.0|^8.0",
-                "illuminate/http": "^6.0|^7.0|^8.0",
-                "illuminate/pagination": "^6.0|^7.0|^8.0",
-                "illuminate/queue": "^6.0|^7.0|^8.0",
-                "illuminate/support": "^6.0|^7.0|^8.0",
-                "php": "^7.2|^8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^8.0|^9.3"
-            },
-            "suggest": {
-                "algolia/algoliasearch-client-php": "Required to use the Algolia engine (^2.2)."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "8.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Scout\\ScoutServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Scout\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Laravel Scout provides a driver based solution to searching your Eloquent models.",
-            "keywords": [
-                "algolia",
-                "laravel",
-                "search"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/scout/issues",
-                "source": "https://github.com/laravel/scout"
-            },
-            "time": "2021-04-06T14:35:41+00:00"
-        },
-        {
             "name": "laravel/tinker",
             "version": "v2.6.1",
             "source": {
@@ -2207,78 +2138,6 @@
                 }
             ],
             "time": "2021-01-18T20:58:21+00:00"
-        },
-        {
-            "name": "livewire/livewire",
-            "version": "v2.5.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/livewire/livewire.git",
-                "reference": "de192292d68276d831e5fd9824c80c3b78a21ddf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/de192292d68276d831e5fd9824c80c3b78a21ddf",
-                "reference": "de192292d68276d831e5fd9824c80c3b78a21ddf",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "^7.0|^8.0",
-                "illuminate/support": "^7.0|^8.0",
-                "illuminate/validation": "^7.0|^8.0",
-                "php": "^7.2.5|^8.0",
-                "symfony/http-kernel": "^5.0"
-            },
-            "require-dev": {
-                "calebporzio/sushi": "^2.1",
-                "laravel/framework": "^7.0|^8.0",
-                "mockery/mockery": "^1.3.1",
-                "orchestra/testbench": "^5.0|^6.0",
-                "orchestra/testbench-dusk": "^5.2|^6.0",
-                "phpunit/phpunit": "^8.4|^9.0",
-                "psy/psysh": "@stable"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Livewire\\LivewireServiceProvider"
-                    ],
-                    "aliases": {
-                        "Livewire": "Livewire\\Livewire"
-                    }
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Livewire\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Caleb Porzio",
-                    "email": "calebporzio@gmail.com"
-                }
-            ],
-            "description": "A front-end framework for Laravel.",
-            "support": {
-                "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.5.5"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/calebporzio",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-07-13T05:03:28+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3678,115 +3537,6 @@
                 }
             ],
             "time": "2021-08-11T01:06:55+00:00"
-        },
-        {
-            "name": "rezaamini-ir/laravel-easyblade",
-            "version": "0.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rezaamini-ir/laravel-easyblade.git",
-                "reference": "12d7cfa0fd28d83081fb4c41e1b9fe7e16241e2f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rezaamini-ir/laravel-easyblade/zipball/12d7cfa0fd28d83081fb4c41e1b9fe7e16241e2f",
-                "reference": "12d7cfa0fd28d83081fb4c41e1b9fe7e16241e2f",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^5.7|^6.0|^7.0|^8.0",
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "laravel/framework": "^5.7|^6.0|^7.0|^8.0",
-                "orchestra/testbench": "~3.7|^4.0|^5.0|^6.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "EasyBlade\\EasyBladeServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "EasyBlade\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Reza Amini",
-                    "email": "rezaaminiroyal@gmail.com"
-                }
-            ],
-            "description": "Create a easier & readable Blade view with EasyBlade",
-            "support": {
-                "issues": "https://github.com/rezaamini-ir/laravel-easyblade/issues",
-                "source": "https://github.com/rezaamini-ir/laravel-easyblade/tree/0.2.2"
-            },
-            "time": "2021-01-17T08:50:39+00:00"
-        },
-        {
-            "name": "rezaamini-ir/laravel-easypanel",
-            "version": "1.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rezaamini-ir/laravel-easypanel.git",
-                "reference": "5740315cb99a3e4ec1a10a7dc43616eaed281eaa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rezaamini-ir/laravel-easypanel/zipball/5740315cb99a3e4ec1a10a7dc43616eaed281eaa",
-                "reference": "5740315cb99a3e4ec1a10a7dc43616eaed281eaa",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^6.0|^7.0|^8.0",
-                "laravel/framework": "^6.0|^7.0|^8.0",
-                "livewire/livewire": "^1.0|^2.3",
-                "php": "^7.3|^8.0",
-                "rezaamini-ir/laravel-easyblade": "^0.2.2"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.7|^4.0|^5.0|^6.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "EasyPanel\\EasyPanelServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "EasyPanel\\": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Reza Amini",
-                    "email": "rezaaminiroyal@gmail.com"
-                }
-            ],
-            "description": "An admin panel based on livewire",
-            "support": {
-                "issues": "https://github.com/rezaamini-ir/laravel-easypanel/issues",
-                "source": "https://github.com/rezaamini-ir/laravel-easypanel/tree/1.7.1"
-            },
-            "time": "2021-07-31T14:01:09+00:00"
         },
         {
             "name": "spatie/laravel-robots-middleware",

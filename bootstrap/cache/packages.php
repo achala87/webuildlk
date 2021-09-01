@@ -56,29 +56,11 @@
       0 => 'Laravel\\Sail\\SailServiceProvider',
     ),
   ),
-  'laravel/scout' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Scout\\ScoutServiceProvider',
-    ),
-  ),
   'laravel/tinker' => 
   array (
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    ),
-  ),
-  'livewire/livewire' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Livewire\\LivewireServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Livewire' => 'Livewire\\Livewire',
     ),
   ),
   'nesbot/carbon' => 
@@ -100,20 +82,6 @@
     'providers' => 
     array (
       0 => 'OwenIt\\Auditing\\AuditingServiceProvider',
-    ),
-  ),
-  'rezaamini-ir/laravel-easyblade' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'EasyBlade\\EasyBladeServiceProvider',
-    ),
-  ),
-  'rezaamini-ir/laravel-easypanel' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'EasyPanel\\EasyPanelServiceProvider',
     ),
   ),
   'yajra/laravel-datatables-oracle' => 

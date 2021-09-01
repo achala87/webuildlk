@@ -21,7 +21,7 @@
                       Category
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Economy', app()->getLocale())); ?>">Economy</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Economy', app()->getLocale())); ?>">Economy</a></li> <!--switched the terms in the dropdown content-->
                       <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Environment', app()->getLocale())); ?>">Environment</a></li>
                       <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'War and Peace', app()->getLocale())); ?>">War and Peace</a></li>
                       <li><a class="dropdown-item" href="<?php echo e(route('article_search', 'Sustainable Development', app()->getLocale())); ?>">Sustainable Development</a></li>
