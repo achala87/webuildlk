@@ -8,8 +8,6 @@ use App\Models\Article;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-use Carbon\Carbon;
-
 class ArticleSeeder extends Seeder
 {
     /**
@@ -29,8 +27,6 @@ class ArticleSeeder extends Seeder
               'slug' => 'seeded-article1',
               'featured' => 0,
               'user_id' => 1,
-              'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-              'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ),
             array(
               'title' => 'Featured article seeded',
@@ -41,8 +37,6 @@ class ArticleSeeder extends Seeder
               'seo_description' => 'another description',
               'featured' => 1,
               'user_id' => 2,
-              'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-              'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ),
           ));
     }

@@ -33,26 +33,26 @@ class ArticleController extends Controller
         exit;
     }
 
-    public function article_search($searchparam, Request $request) //modified part
+    public function article_search($searchparam = 0, Request $request)
     {   
-        
-        $query = $request->get('search_term');
-        
-        
-        //search from content search input field
-        if($query!=null){
-        $data['articles'] = Article::search($query)->get();
+        $filtertype = 'dropdown';
+        if($searchparam == 0){ 
+            $filtertype = 'content';
         }
-           
-        //if search field empty and category selected
-        else{
+
+        //search from content search input field
+        if($filtertype == 'content'){ 
+            $data['articles'] = Article::where('acontent', 'like', '%'. $request->input('search_term') . '%' )->orderBy('created_at', 'desc')->get();
+        }
+        
+        //search from drop down category
+        if($filtertype == 'dropdown'){
             $data['articles'] = Article::whereJsonContains('category', $searchparam)->orderBy('created_at', 'desc')->get();
         }
         
-        //redirect if articles not present
         if(!$data['articles']){
             return redirect()->route('articles', app()->getLocale());
-         } 
+         }
 
          return view('view-articles', $data );
     }

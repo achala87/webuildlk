@@ -85,8 +85,8 @@
 tinymce.init({
       selector: '#acontent',
       height: 500,
-      plugins: 'preview lists casechange image formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
-      toolbar: 'a11ycheck numlist bullist image casechange checklist code formatpainter pageembed permanentpen table',
+      plugins: 'preview casechange image formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments image casechange checklist code formatpainter pageembed permanentpen table',
       toolbar_mode: 'floating',
       tinycomments_mode: 'embedded',
       tinycomments_author: 'BuildLK',
@@ -146,7 +146,7 @@ $(document).ready(function() {
     minChars: 3,
     maxChars: 60, // if not provided there is no limit
     limit: 10, // if not provided there is no limit
-    // validationPattern: new RegExp('^[a-zA-Z0-9\s]*$'), // a pattern you can use to validate the input
+    validationPattern: new RegExp('^[a-zA-Z]+$'), // a pattern you can use to validate the input
     width: 'auto', // standard option is 'auto'
     height: 'auto', // standard option is 'auto'
     hide: true,
@@ -195,6 +195,21 @@ function slugify(str)
 
     return str;
 }
+
+
+    // ClassicEditor
+    //     .create(document.querySelector('#acontent'))
+    //     .then(editor => {
+    //         //  editor.model.document.on('change:data', () => {
+    //         document.querySelector('#submit').addEventListener('click', () => {  
+    //             @this.set('acontent', editor.getData());
+
+    //         });
+    //     })
+    //     .catch(error => {
+    //         console.error(error);
+    //     });
+
 
 </script>
 

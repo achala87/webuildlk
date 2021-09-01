@@ -2,7 +2,7 @@
 
  <x-slot name="header">
        <div class="row"> 
-       <div class="col-md-6">D-Add organization</div> 
+       <div class="col-md-6"> Add organization</div> 
      
    </x-slot>
 
